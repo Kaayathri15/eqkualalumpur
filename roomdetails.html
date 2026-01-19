@@ -66,7 +66,7 @@
         }
 
         .hero-content {
-            font-size: 15px;
+            font-size: 20px;
             color: var(--muted-text);
             line-height: 2;
             padding-top: 15px;
@@ -132,14 +132,14 @@
 
         .amenities-left p {
             margin-bottom: 30px;
-            font-size: 15px;
+            font-size: 18px;
         }
 
         .amenities-left strong {
             display: block;
             font-family: var(--font-sans);
             text-transform: uppercase;
-            font-size: 11px;
+            font-size: 18px;
             letter-spacing: 2px;
             margin-bottom: 8px;
             color: #000;
@@ -151,7 +151,7 @@
 
         .amenities-right li {
             margin-bottom: 25px;
-            font-size: 16px;
+            font-size: 18px;
             color: var(--text-color);
             max-width: 550px;
             position: relative;
@@ -264,7 +264,23 @@
             border-bottom: 1px solid #000;
             padding-bottom: 5px;
         }
-
+     .discover-link {
+            display: inline-block;
+            /* Allows margins and prevents full-width border */
+            text-decoration: none;
+            color: #1a1a1a;
+            font-size: 11px;
+            letter-spacing: 2px;
+            padding-bottom: 5px;
+            /* Space between text and underline */
+            border-bottom: 1px solid #1a1a1a;
+            /* Creates the controlled underline */
+            margin-bottom: 30px;
+            /* CREATES THE GAP between link and the image below */
+            width: fit-content;
+            /* Ensures the underline only spans the text length */
+         text-transform: uppercase;
+        }
         /* --- RESPONSIVE --- */
         @media (max-width: 1024px) {
 
@@ -378,7 +394,7 @@
                     <p><strong>Check-in</strong> 15.00 hrs (Flexible subject to availability)</p>
                     <p><strong>Check-out</strong> 12.00 hrs (Flexible subject to availability)</p>
                     <div style="margin-top: 40px;">
-                        <a href="#" class="text-link">View Floorplan</a>
+                        <a href="#" class="discover-link">View Floorplan</a>
                     </div>
                 </div>
                 <div class="amenities-right">
@@ -412,14 +428,14 @@
                     <h3>Premier King</h3>
                     <p>Exquisite 595 sqm riverfront 2-bedroom villa with private garden, jacuzzi plunge pool, living and
                         dining room.</p>
-                    <a href="#" class="text-link">View Room</a>
+                    <a href="#" class="discover-link">View Room</a>
                 </div>
                 <div class="card">
                     <img src="images/room/AHA---Bathroom.jpg" alt="Riverfront Premier">
                     <h3>Deluxe Twin</h3>
                     <p>On levels 5 - 10, enjoy 61sqm with floor to ceiling river views and private balcony, king-size or
                         twin beds.</p>
-                    <a href="#" class="text-link">View Room</a>
+                    <a href="#" class="discover-link">View Room</a>
                 </div>
             </div>
         </section>
@@ -502,7 +518,7 @@
             <div class="footer-column">
                 <h4>Connect</h4>
                 <p>Join our newsletter for curated experiences and exclusive offers.</p>
-                <a href="#" class="text-link" style="margin-top: 15px; display: inline-block;">Subscribe</a>
+                <a href="#" class="discover-link" style="margin-top: 15px; display: inline-block;">Subscribe</a>
             </div>
         </div>
         <div class="footer-bottom">

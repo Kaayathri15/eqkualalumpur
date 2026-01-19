@@ -230,7 +230,24 @@
     .accent-line { margin: 0 auto 30px; }
     .editorial-image { padding: 0 20px; }
 }
-       
+                       /* Specific styling for the Discover More link */
+        .discover-link {
+            display: inline-block;
+            /* Allows margins and prevents full-width border */
+            text-decoration: none;
+            color: #1a1a1a;
+            font-size: 11px;
+            letter-spacing: 2px;
+            padding-bottom: 5px;
+            /* Space between text and underline */
+            border-bottom: 1px solid #1a1a1a;
+            /* Creates the controlled underline */
+            margin-bottom: 30px;
+            /* CREATES THE GAP between link and the image below */
+            width: fit-content;
+            /* Ensures the underline only spans the text length */
+         text-transform: uppercase;
+        }
     </style>
 </head>
 
@@ -310,7 +327,7 @@
             <h2 class="serif">The Diamond Ballroom</h2>
             <div class="accent-line"></div>
             <p>A masterpiece of modern design, featuring a stunning crystal chandelier and a pillarless space that can accommodate up to 500 guests. It is the pinnacle of prestige for your grand reception.</p>
-            <a href="#" class="small-link">Explore the Space</a>
+            <a href="#" class="discover-link ">Explore the Space</a>
         </div>
     </div>
 </section>
@@ -328,7 +345,7 @@
             <div class="feature-text">
                 <h3 class="serif">Bespoke Floral Design</h3>
                 <p>Our in-house florists work with you to curate botanical arrangements that reflect your personal style, from classic white lilies to contemporary tropical avant-garde.</p>
-                <a href="#" class="small-link">Meet Our Planners</a>
+                <a href="#" class="discover-link">Meet Our Planners</a>
             </div>
         </div>
 
@@ -337,7 +354,7 @@
             <div class="feature-text">
                 <h3 class="serif">A Culinary Celebration</h3>
                 <p>Customize your wedding menu with our award-winning chefs. Whether it is a traditional Chinese banquet, a Malay feast, or a modern Western degustation.</p>
-                <a href="#" class="small-link">View Sample Menus</a>
+                <a href="#" class="discover-link">View Sample Menus</a>
             </div>
         </div>
     </section>
