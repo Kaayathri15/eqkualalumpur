@@ -290,7 +290,7 @@
         /* --- HERO CONTAINER --- */
         .hero-container {
             margin-left: 140px;
-            max-width: 1600px;
+            /* max-width: 1600px; */
             position: relative;
         }
 
