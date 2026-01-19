@@ -1,0 +1,402 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Accommodations | EQ Kuala Lumpur</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Baskerville:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+
+    <style>
+        body {
+            font-family: 'Baskerville', serif;
+        }
+
+        /* ---------------- OFFERS PAGE ---------------- */
+
+        .offers-page {
+            padding: 80px 5% 100px;
+            max-width: 1600px;
+            margin: auto;
+        }
+
+        .offers-intro {
+            display: flex;
+            gap: 100px;
+            margin-bottom: 80px;
+        }
+
+        .intro-left,
+        .intro-right {
+            width: 50%;
+        }
+
+        .intro-left p {
+            font-size: 1.8rem;
+            width: 70%;
+            color: #444;
+        }
+
+        .intro-right p {
+            font-size: 1.5rem;
+            width: 70%;
+            color: #666;
+        }
+
+        /* Filter */
+        .offers-filter {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            border-top: 1px solid #e0e0e0;
+            border-bottom: 1px solid #e0e0e0;
+            padding: 20px 0;
+            margin-bottom: 60px;
+        }
+
+        .offers-filter a {
+            text-decoration: none;
+            color: #888;
+            font-size: 14px;
+            letter-spacing: 2px;
+        }
+
+        .offers-filter a.active-filter {
+            color: #1a1a1a;
+            border-bottom: 1px solid #1a1a1a;
+        }
+
+        /* Grid */
+        .offers-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            margin-bottom: 80px;
+        }
+
+        .offer-card {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .offer-image {
+            aspect-ratio: 16/9;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        .offer-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform .5s ease;
+        }
+
+        .offer-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .offer-content h3 {
+            font-size: 1.7rem;
+            letter-spacing: 3px;
+            font-weight: 300;
+            margin-bottom: 15px;
+        }
+
+        .offer-desc {
+            font-size: 1.5rem;
+            color: #777;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .discover-link {
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-decoration: none;
+            color: #1a1a1a;
+            border-bottom: 1px solid #1a1a1a;
+            width: fit-content;
+            padding-bottom: 4px;
+        }
+
+        /* ---------------- INFO SECTIONS (IMPROVED) ---------------- */
+
+        .info-section {
+            padding: 100px 5%;
+            background-color: #fafafa;
+        }
+
+        .info-grid {
+            max-width: 1600px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 60px;
+        }
+
+        .info-header h1 {
+            font-size: 2rem;
+            letter-spacing: 4px;
+            color: #777;
+            text-transform: uppercase;
+        }
+
+        .info-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            font-size: 1.45rem;
+            color: #555;
+            line-height: 1.7;
+        }
+
+        .info-content p {
+            margin-bottom: 28px;
+            padding-left: 18px;
+            position: relative;
+        }
+
+        .info-content p::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 2px;
+            height: 70%;
+            background: #d0d0d0;
+        }
+
+        @media (max-width: 1024px) {
+            .offers-grid,
+            .offers-intro,
+            .info-grid,
+            .info-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+  <header class="site-header">
+    <div class="header-top">
+      <div class="nav-left">
+        <a href="#" class="lang-selector">ENGLISH ▾</a>
+      </div>
+
+      <div class="nav-center-main">
+        <a href="#">DESTINATIONS</a>
+        <div class="logo-tilde">
+          <a href="index.html">
+            <img src="images/tidle.png" alt="Logo" class="tilde-icon" />
+          </a>
+        </div>
+
+        <a href="#">EXPERIENCES</a>
+      </div>
+
+      <div class="nav-right">
+        <a href="#" class="book-btn-fixed">BOOK YOUR STAY</a>
+      </div>
+    </div>
+
+    <nav class="header-bottom">
+      <a href="offers.html" class="">OFFERS</a>
+      <a href="accomodation.html">ACCOMMODATION</a>
+      <a href="dining.html">DINING</a>
+      <a href="meeting.html">MEETINGS & EVENTS</a>
+      <a href="wellness.html">WELLNESS</a>
+      <a href="wedding.html">WEDDING</a>
+      <a href="https://eshop.eqkualalumpur.equatorial.com/">E-SHOP</a>
+    </nav>
+  </header>
+
+<main class="offers-page">
+    <h1>Accommodations</h1>
+
+    <section class="offers-intro">
+        <div class="intro-left">
+            <p>Sophisticated retreats and curated stays designed to be your sanctuary in the heart of Kuala Lumpur.</p>
+        </div>
+        <div class="intro-right">
+            <p>From contemporary rooms to expansive suites, our accommodations blend timeless luxury with modern comfort.</p>
+        </div>
+    </section>
+
+    <nav class="offers-filter">
+        <a href="#" class="filter-btn active-filter" data-filter="rooms">ROOMS</a>
+        <a href="#" class="filter-btn" data-filter="suits">SUITES</a>
+    </nav>
+
+    <!-- ROOMS -->
+    <section class="offers-grid">
+        <div class="offer-card" data-category="rooms">
+            <div class="offer-image">
+                <img src="images/DSC_5263.jpg">
+            </div>
+            <div class="offer-content">
+                <h3>PRESIDENTIAL SUITE</h3>
+                <p class="offer-desc">A contemporary space inspired by Malaysian design, ideal for families and extended stays.</p>
+                <a class="discover-link" href="roomdetails.html">DISCOVER MORE</a>
+            </div>
+        </div>
+
+        <div class="offer-card" data-category="rooms">
+            <div class="offer-image">
+                <img src="images/2023-07-13_eq-equator-club-lounge-seating-area-1024x683.jpg">
+            </div>
+            <div class="offer-content">
+                <h3>EQUATOR CLUB ROOM</h3>
+                <p class="offer-desc">Exclusive privileges, refined comfort, and personalised service throughout your stay.</p>
+                <a class="discover-link" href="roomdetails.html">DISCOVER MORE</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SUITES -->
+    <section class="offers-grid">
+        <div class="offer-card" data-category="suits">
+            <div class="offer-image">
+                <img src="images/2020-01-14_eq_studio-suite_living_v2-1024x584.jpg">
+            </div>
+            <div class="offer-content">
+                <h3>STUDIO SUITE</h3>
+                <p class="offer-desc">Thoughtfully designed living spaces combining comfort, privacy, and style.</p>
+                <a class="discover-link" href="suitedetails.html">DISCOVER MORE</a>
+            </div>
+        </div>
+
+        <div class="offer-card" data-category="suits">
+            <div class="offer-image">
+                <img src="images/2020-01-14_eq_executive-suite_bedroom2_v2-1024x487.jpg">
+            </div>
+            <div class="offer-content">
+                <h3>EXECUTIVE SUITE</h3>
+                <p class="offer-desc">A spacious sanctuary offering refined luxury for discerning travellers.</p>
+                <a class="discover-link" href="suitedetails.html">DISCOVER MORE</a>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!-- GUEST SERVICE -->
+<section class="info-section">
+    <div class="info-grid">
+        <div class="info-header">
+            <h1>Guest Services</h1>
+        </div>
+        <div class="info-content">
+            <div>
+                <p>Limousine and VIP airport fast-track services available upon request.</p>
+                <p>Dedicated guest service team assisting before arrival and throughout your stay.</p>
+                <p>Complimentary shuttle service to selected city destinations.</p>
+            </div>
+            <div>
+                <p>Laundry, dry cleaning and pressing services.</p>
+                <p>Complimentary minibar snacks and non-alcoholic beverages.</p>
+                <p>High-speed internet access throughout the hotel.</p>
+                <p>24-hour fitness centre.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ROOM POLICIES -->
+<section class="info-section">
+    <div class="info-grid">
+        <div class="info-header">
+            <h1>Room Policies</h1>
+        </div>
+        <div class="info-content">
+            <div>
+                <p>One dog up to 10kg is permitted per room. Pets must be supervised at all times.</p>
+                <p>Guest rooms are intended strictly for accommodation purposes.</p>
+            </div>
+            <div>
+                <p>Children aged 0–11 stay free when sharing existing bedding.</p>
+                <p>All rates are subject to service charge and applicable government taxes.</p>
+            </div>
+        </div>
+    </div>
+</section>
+    <footer class="site-footer">
+    <div class="footer-content">
+        <div class="footer-column">
+            <div class="footer-logo">
+                <img src="images/logo_eq.png" alt="EQ Logo">
+            </div>
+            <p class="footer-tagline">A Legacy of Luxury</p>
+        </div>
+
+        <div class="footer-column">
+            <h4>Experience</h4>
+            <ul>
+                <li><a href="#">Accommodations</a></li>
+                <li><a href="#">Dining</a></li>
+                <li><a href="#">Wellness</a></li>
+                <li><a href="#">EQ Curates</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-column">
+            <h4>Discover</h4>
+            <ul>
+                <li><a href="#">Our Story</a></li>
+                <li><a href="#">Awards</a></li>
+                <li><a href="#">Gallery</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-column">
+            <h4>Connect</h4>
+            <p class="footer-address">
+                The EQ Kuala Lumpur<br>
+                Golden Triangle<br>
+                Kuala Lumpur, Malaysia
+            </p>
+            <p class="footer-contact">
+                <a href="tel:+60123456789">+60 12 345 6789</a><br>
+                <a href="mailto:reservations@eq.com">reservations@eq.com</a>
+            </p>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>&copy; 2026 EQ Kuala Lumpur. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms & Conditions</a>
+        </div>
+    </div>
+</footer>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const buttons = document.querySelectorAll('.filter-btn');
+    const items = document.querySelectorAll('[data-category]');
+
+    function filter(category) {
+        items.forEach(item => {
+            item.style.display = item.dataset.category === category ? 'flex' : 'none';
+        });
+    }
+
+    buttons.forEach(btn => {
+        btn.addEventListener('click', e => {
+            e.preventDefault();
+            buttons.forEach(b => b.classList.remove('active-filter'));
+            btn.classList.add('active-filter');
+            filter(btn.dataset.filter);
+        });
+    });
+
+    filter('rooms');
+});
+</script>
+
+</body>
+</html>

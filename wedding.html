@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weddings | EQ Kuala Lumpur</title>
+    <link href="https://fonts.googleapis.com/css2?family=Baskerville:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <style>
+        :root {
+            --text-main: #333;
+            --text-muted: #666;
+            --text-light: #999;
+            --serif: 'Baskerville';
+            --spacing-lg: 100px;
+            --spacing-md: 60px;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Baskerville';
+            color: var(--text-main);
+            line-height: 1.7;
+            background-color: #fff;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .serif {
+            font-family: var(--serif);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 400;
+        }
+
+        .small-link {
+            font-size: 11px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: var(--text-main);
+            border-bottom: 1px solid transparent;
+            transition: 0.3s;
+            font-weight: bold;
+        }
+
+        .small-link:hover { border-bottom: 1px solid var(--text-main); }
+
+        .section-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: var(--spacing-lg) 20px;
+        }
+
+        .wedding-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto var(--spacing-md);
+        }
+
+        .hero-full {
+            width: 100%;
+            height: 700px;
+            object-fit: cover;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .venue-nav {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            border-bottom: 1px solid #eee;
+            margin-bottom: 50px;
+        }
+
+        .venue-nav a { padding-bottom: 10px; color: var(--text-light); cursor: pointer; }
+        .venue-nav a.active { color: var(--text-main); border-bottom: 1px solid var(--text-main); }
+
+        .feature-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .feature-row.reverse { direction: rtl; }
+        .feature-row.reverse .feature-text { direction: ltr; }
+
+        .inquiry-box { background-color: #f9f7f5; padding: 80px 0; text-align: center; }
+
+        .inquiry-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            max-width: 1000px;
+            margin: 40px auto 0;
+            text-align: left;
+            font-size: 13px;
+            border-top: 1px solid #ddd;
+            padding-top: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="site-header">
+      <div class="header-top">
+        <div class="nav-left">
+          <a href="#" class="lang-selector">ENGLISH ▾</a>
+        </div>
+        <div class="nav-center-main">
+          <a href="#">DESTINATIONS</a>
+   <div class="logo-tilde">
+  <a href="index.html">
+    <img src="images/tidle.png" alt="Logo" class="tilde-icon" />
+  </a>
+</div>
+
+          <a href="#">EXPERIENCES</a>
+        </div>
+        <div class="nav-right">
+          <a href="#" class="book-btn-fixed">BOOK YOUR STAY</a>
+        </div>
+      </div>
+        <nav class="header-bottom">
+            <a href="offers.html">OFFERS</a>
+            <a href="accomodation.html">ACCOMMODATION</a>
+            <a href="dining.html">DINING</a>
+            <a href="meeting.html">MEETINGS & EVENTS</a>
+            <a href="wellness.html">WELLNESS</a>
+            <a href="wedding.html">WEDDING</a>
+            <a href="https://eshop.eqkualalumpur.equatorial.com/">E-SHOP</a>
+        </nav>
+    </header>
+
+    <section class="section-container">
+        <div class="wedding-intro">
+            <h1 class="serif" style="font-size: 3.5rem; margin-bottom: 10px;">Unforgettable Unions</h1>
+            <p class="serif" style="font-size: 1.2rem; color: #888; margin-bottom: 30px;">A timeless backdrop for your "I Do" moments.</p>
+            <p style="font-size: 1.1rem; color: var(--text-muted);">From grand gala celebrations in our Diamond Ballroom to intimate ceremonies overlooking the city skyline, EQ Kuala Lumpur crafts weddings that are as unique as your love story.</p>
+            <div style="margin-top: 30px;">
+                <a href="#" class="small-link">View Wedding Packages</a> &nbsp; | &nbsp; <a href="#" class="small-link">Wedding Gallery</a>
+            </div>
+        </div>
+        <img src="http://googleusercontent.com/image_collection/image_retrieval/10639623954483779856_0" class="hero-full" alt="Wedding Lifestyle">
+    </section>
+
+    <section class="section-container">
+        <div class="grid-2">
+            <div>
+                <h2 class="serif">The Diamond Ballroom</h2>
+                <p>A masterpiece of modern design, featuring a stunning crystal chandelier and a pillarless space that can accommodate up to 500 guests. It is the pinnacle of prestige for your grand reception.</p>
+                <a href="#" class="small-link">Explore the Space</a>
+            </div>
+            <img src="http://googleusercontent.com/image_collection/image_retrieval/3624319286803121443_0" alt="Ballroom Celebration">
+        </div>
+    </section>
+
+    <section class="section-container" style="text-align: center;">
+        <nav class="venue-nav serif">
+            <a class="small-link active">Ceremony</a>
+            <a class="small-link">Reception</a>
+            <a class="small-link">Bridal Suite</a>
+            <a class="small-link">Catering</a>
+        </nav>
+        <div class="feature-row">
+            <img src="http://googleusercontent.com/image_collection/image_retrieval/6297926679444572191_0" alt="Bespoke Design">
+            <div class="feature-text">
+                <h3 class="serif">Bespoke Floral Design</h3>
+                <p>Our in-house florists work with you to curate botanical arrangements that reflect your personal style, from classic white lilies to contemporary tropical avant-garde.</p>
+                <a href="#" class="small-link">Meet Our Planners</a>
+            </div>
+        </div>
+
+        <div class="feature-row reverse">
+            <img src="http://googleusercontent.com/image_collection/image_retrieval/10441060712308031706_0" alt="Gourmet Catering">
+            <div class="feature-text">
+                <h3 class="serif">A Culinary Celebration</h3>
+                <p>Customize your wedding menu with our award-winning chefs. Whether it is a traditional Chinese banquet, a Malay feast, or a modern Western degustation.</p>
+                <a href="#" class="small-link">View Sample Menus</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="inquiry-box">
+        <div class="section-container" style="padding: 0 20px;">
+            <div class="wedding-intro" style="margin-bottom: 40px;">
+                <h2 class="serif" style="font-size: 2rem;">Start Your Forever</h2>
+                <p>Allow our dedicated wedding specialists to handle every detail while you focus on the moment.</p>
+                <br>
+                <a href="#" class="small-link" style="border: 1px solid #333; padding: 12px 30px;">Request a Proposal</a>
+            </div>
+
+
+        </div>
+    </section>
+
+</body>
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-column">
+                <div class="footer-logo">
+                    <img src="images/logo_eq.png" alt="EQ Logo">
+                </div>
+                <p class="footer-tagline">A Legacy of Luxury</p>
+            </div>
+
+            <div class="footer-column">
+                <h4>Experience</h4>
+                <ul>
+                    <li><a href="#">Accommodations</a></li>
+                    <li><a href="#">Dining</a></li>
+                    <li><a href="#">Wellness</a></li>
+                    <li><a href="#">EQ Curates</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4>Discover</h4>
+                <ul>
+                    <li><a href="#">Our Story</a></li>
+                    <li><a href="#">Awards</a></li>
+                    <li><a href="#">Gallery</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4>Connect</h4>
+                <p class="footer-address">
+                    The EQ Kuala Lumpur<br>
+                    Golden Triangle<br>
+                    Kuala Lumpur, Malaysia
+                </p>
+                <p class="footer-contact">
+                    <a href="tel:+60123456789">+60 12 345 6789</a><br>
+                    <a href="mailto:reservations@eq.com">reservations@eq.com</a>
+                </p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 EQ Kuala Lumpur. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms & Conditions</a>
+            </div>
+        </div>
+    </footer>
+</html>

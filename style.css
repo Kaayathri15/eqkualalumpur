@@ -160,14 +160,26 @@
         }
 
         /* The Tilde Logo in Center */
-        .logo-tilde {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            line-height: 0.6;
-            font-size: 24px;
-            font-weight: bold;
-        }
+      /* Update the container to handle the image */
+.logo-tilde {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}/* Style the image itself */
+.tilde-icon {
+    height: 40px; /* Adjust height to fit your header scale */
+    width: auto;  /* Maintains aspect ratio */
+    display: block;
+}
+
+/* Adjust the center-main gap if the image is wider than the text was */
+.nav-center-main {
+    flex: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px; /* Slightly reduced gap to accommodate image width */
+}
 
         /* Bottom Row Styling */
         .header-bottom {
@@ -184,7 +196,7 @@
             color: #4a4a4a;
             font-size: 11px;
             letter-spacing: 1.5px;
-            font-family: Arial, sans-serif;
+            font-family: 'Baskerville';
             padding-bottom: 2px;
             /* Space for the underline */
             border-bottom: 1px solid transparent;
@@ -283,13 +295,13 @@
             color: #444;
         }
 
-        .description::first-letter {
+        /* .description::first-letter {
             font-size: 3.5rem;
             float: left;
             margin-right: 12px;
             line-height: 1;
             color: #8e8c84;
-        }
+        } */
 
         .normaldescription {
             font-size: 1.5rem;
@@ -341,19 +353,17 @@
             max-width: 500px;
         }
 
-.discover-link {
-    display: inline-block;
-    align-self: flex-start; /* Keeps the underline tight to the text */
-    margin-top: auto; /* Final insurance for bottom alignment */
-    text-decoration: none;
-    color: #1a1a1a;
-    font-size: 11px;
-    letter-spacing: 2px;
-    border-bottom: 1px solid #1a1a1a;
-    padding-bottom: 5px;
-    text-transform: uppercase;
-    transition: opacity 0.3s;
-}
+        .discover-link {
+            display: inline-block;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #1a1a1a;
+            font-size: 11px;
+            letter-spacing: 2px;
+            border-bottom: 1px solid #1a1a1a;
+            padding-bottom: 5px;
+            transition: all 0.3s;
+        }
 
         .discover-link:hover {
             padding-right: 10px;
@@ -528,7 +538,6 @@
         .footer-logo img {
             width: 120px;
             margin-bottom: 20px;
-            filter: brightness(0) invert(1);
         }
 
         .footer-tagline {
@@ -750,136 +759,220 @@
         }
 
 
-
-        /* --- OFFERS PAGE SPECIFIC --- */
-
-        .offers-page {
-            padding: 80px 5% 100px 5%;
-            max-width: 1600px;
-            margin: 0 auto;
-        }
-
-        .offers-intro {
-            display: flex;
-            gap: 100px;
-            margin-bottom: 80px;
-        }
-
-        .intro-left, .intro-right {
-            flex: 1;
-        }
-
-        .intro-left h1 {
-            margin-bottom: 20px;
-        }
-
-        .intro-left p {
-            font-size: 1.5rem;
-            color: #444;
-        }
-
-        .intro-right p {
-            font-size: 0.9rem;
-            color: #666;
-            margin-top: 40px;
-        }
-
-        /* Filter Bar */
-        .offers-filter {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            border-top: 1px solid #e0e0e0;
-            border-bottom: 1px solid #e0e0e0;
-            padding: 20px 0;
-            margin-bottom: 60px;
-        }
-
-        .offers-filter a {
-            text-decoration: none;
-            color: #888;
-            font-size: 11px;
-            letter-spacing: 2px;
-        }
-
-        .offers-filter a.active-filter {
-            color: #1a1a1a;
-            border-bottom: 1px solid #1a1a1a;
-        }
-
-        /* Grid Layout */
-        .offers-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-        }
-
-.offer-card {
-    display: flex;
-    flex-direction: column;
-    height: 100%; /* Important: Makes all cards in a row the same height */
+        /** BOOKING PANEL */
+        /* Booking Panel Styles */
+.booking-panel {
+    position: fixed;
+    top: -100%; /* Start hidden above the screen */
+    left: 0;
+    width: 100%;
+    background: #f4f1ee; /* Matches your cream background */
+    z-index: 2000;
+    transition: top 0.5s ease-in-out;
+    padding: 60px 8% 40px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
 
-        .offer-image {
-            width: 100%;
-            aspect-ratio: 1 / 1;
-            /* Makes it a perfect square */
-            overflow: hidden;
-            margin-bottom: 30px;
-        }
-
-        .offer-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .offer-card:hover .offer-image img {
-            transform: scale(1.05);
-        }
-
-.offer-content {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1; /* Fills the vertical space in the card */
-    padding-top: 20px;
+.booking-panel.active {
+    top: 0; /* Slide down to the top */
 }
-        .offer-content h3 {
-            font-size: 1.2rem;
-            letter-spacing: 2px;
-            font-weight: 400;
-            margin-bottom: 15px;
-        }
 
-        .promo-tag {
-            font-size: 10px;
-            font-weight: bold;
-            letter-spacing: 1px;
-            margin-bottom: 15px;
-            color: #1a1a1a;
-        }
+.panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 40px;
+    border-bottom: 1px solid #e0ddd8;
+    padding-bottom: 20px;
+}
 
-.offer-desc {
-    font-size: 0.9rem;
+.panel-title h2 {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    font-size: 32px;
+    letter-spacing: 2px;
+}
+
+.panel-title p {
+    font-family: var(--font-sans);
+    font-size: 10px;
+    letter-spacing: 1px;
+    margin-top: 10px;
     color: #666;
-    line-height: 1.6;
-    margin-bottom: 25px;
-    
-    /* This pushes the link to the bottom */
-    flex-grow: 1; 
 }
 
-        /* Mobile Responsiveness */
-        @media (max-width: 1024px) {
-            .offers-grid {
-                grid-template-columns: 1fr;
-                /* Stack on mobile */
-                gap: 60px;
-            }
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 40px;
+    cursor: pointer;
+    font-weight: 200;
+}
 
-            .offers-intro {
-                flex-direction: column;
-                gap: 20px;
-            }
-        }
+/* Content Layout */
+.panel-content {
+    display: grid;
+    grid-template-columns: 350px 1fr;
+    gap: 60px;
+}
+
+.input-group {
+    margin-bottom: 25px;
+    border-bottom: 1px solid #333;
+    padding-bottom: 5px;
+}
+
+.input-group label {
+    display: block;
+    font-family: var(--font-sans);
+    font-size: 10px;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+}
+
+.input-group select, .input-group input {
+    width: 100%;
+    background: none;
+    border: none;
+    font-family: var(--font-sans);
+    font-size: 14px;
+    padding: 5px 0;
+    outline: none;
+}
+
+.guest-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 15px;
+}
+
+.panel-calendar {
+    display: flex;
+    gap: 40px;
+}
+
+/* Footer Buttons */
+.panel-footer {
+    margin-top: 40px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.btn-primary-black {
+    background: #252b31;
+    color: #fff;
+    border: none;
+    padding: 15px 60px;
+    font-family: var(--font-sans);
+    letter-spacing: 2px;
+    cursor: pointer;
+    flex-grow: 1;
+}
+
+.btn-secondary {
+    background: none;
+    border: 1px solid #252b31;
+    padding: 15px 30px;
+    font-family: var(--font-sans);
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+/* Customizing Flatpickr to match Capella/EQ style */
+.flatpickr-calendar {
+    background: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+    font-family: 'Montserrat', sans-serif !important;
+}
+
+.flatpickr-month {
+    color: #000 !important;
+    font-family: 'Libre Baskerville', serif !important;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.flatpickr-day.selected, .flatpickr-day.startRange, .flatpickr-day.endRange {
+    background: #252b31 !important; /* Capella's dark grey/black */
+    border-color: #252b31 !important;
+    color: #fff !important;
+    border-radius: 0 !important; /* Square selection for lifestyle look */
+}
+
+.flatpickr-day.inRange {
+    background: #e9e5e1 !important; /* Subtle range highlight */
+    box-shadow: none !important;
+}
+
+.date-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+/* The Hidden Panel Container */
+.mega-panel {
+  position: absolute;
+  top: 60px; /* Adjust based on your header height */
+  left: 0;
+  width: 100%;
+  background: #f8f8f8; /* Light grey like the screenshot */
+  border-bottom: 1px solid #ddd;
+  display: none; /* Hidden by default */
+  z-index: 1000;
+  padding: 40px 10%;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.mega-panel.active {
+  display: block;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.panel-content {
+  display: flex;
+  justify-content: flex-start;
+  gap: 100px;
+  position: relative;
+}
+
+.panel-column h3 {
+  font-size: 14px;
+  letter-spacing: 2px;
+  color: #666;
+  text-transform: uppercase;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 10px;
+}
+
+.destination-links {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px 40px;
+}
+
+.destination-links a {
+  text-decoration: none;
+  color: #333;
+  font-size: 16px;
+  transition: color 0.2s;
+}
+
+.destination-links a:hover {
+  color: #888;
+}
+
+.close-panel {
+  position: absolute;
+  right: 0;
+  top: 0;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}

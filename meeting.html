@@ -1,0 +1,401 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Accommodations | EQ Kuala Lumpur</title>
+    <link href="https://fonts.googleapis.com/css2?family=Baskerville:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <style>
+        :root {
+            --text-main: #333;
+            --text-muted: #666;
+            --text-light: #999;
+            --serif: 'Baskerville';
+            --spacing-lg: 100px;
+            --spacing-md: 60px;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Baskerville';
+            color: var(--text-main);
+            line-height: 1.7;
+            background-color: #fff;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Typography Utility */
+        .serif {
+            font-family: var(--serif);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 400;
+        }
+
+        .small-link {
+            font-size: 11px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: var(--text-main);
+            border-bottom: 1px solid transparent;
+            transition: 0.3s;
+            font-weight: bold;
+        }
+
+        .small-link:hover {
+            border-bottom: 1px solid var(--text-main);
+        }
+
+        /* Layout Containers */
+        .section-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: var(--spacing-lg) 20px;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: start;
+        }
+
+        /* 1. Header Section (Screenshot 1) */
+        .intro-desc {
+            font-size: 1.5rem;
+            color: var(--text-muted);
+            max-width: 450px;
+        }
+
+        .hero-full {
+            width: 100%;
+            height: 600px;
+            object-fit: cover;
+            margin-top: 40px;
+        }
+
+        /* 2. Truly Great Spaces (Screenshot 3) */
+        .spaces-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .img-box img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .spaces-text {
+            grid-column: 1;
+            max-width: 500px;
+            margin-top: 20px;
+            font-size: 1.5rem;
+            color: var(--text-muted);
+        }
+
+        /* 3. Venue Details (Screenshot 6) */
+        .venue-nav {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            border-bottom: 1px solid #eee;
+            margin-bottom: 50px;
+        }
+
+        .venue-nav a {
+            padding-bottom: 10px;
+            color: var(--text-light);
+            cursor: pointer;
+        }
+
+        .venue-nav a.active {
+            color: var(--text-main);
+            border-bottom: 1px solid var(--text-main);
+        }
+
+        .venue-info-block {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 60px;
+            margin-top: 40px;
+            text-align: left;
+        }
+
+        /* 4. Feature Sections (Screenshot 7, 8, 9) */
+        .feature-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .feature-row.reverse {
+            direction: rtl;
+        }
+
+        .feature-row.reverse .feature-text {
+            direction: ltr;
+        }
+
+        .feature-text h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .feature-text p {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-bottom: 25px;
+        }
+
+        /* 5. Plan / Inquiry (Screenshot 4) */
+        .banner-360 {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            background: #eee;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: var(--spacing-lg);
+        }
+
+        .banner-360 img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .inquiry-box {
+            background-color: #f4f4f4;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .inquiry-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            max-width: 1000px;
+            margin: 40px auto 0;
+            text-align: left;
+            font-size: 13px;
+            border-top: 1px solid #ddd;
+            padding-top: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="site-header">
+      <div class="header-top">
+        <div class="nav-left">
+          <a href="#" class="lang-selector">ENGLISH ▾</a>
+        </div>
+
+        <div class="nav-center-main">
+          <a href="#">DESTINATIONS</a>
+  <div class="logo-tilde">
+  <a href="index.html">
+    <img src="images/tidle.png" alt="Logo" class="tilde-icon" />
+  </a>
+</div>
+
+          <a href="#">EXPERIENCES</a>
+        </div>
+
+        <div class="nav-right">
+          <a href="#" class="book-btn-fixed">BOOK YOUR STAY</a>
+        </div>
+      </div>
+
+        <nav class="header-bottom">
+            <a href="offers.html" class="">OFFERS</a>
+            <a href="accomodation.html">ACCOMMODATION</a>
+            <a href="dining.html">DINING</a>
+            <a href="meeting.html">MEETINGS & EVENTS</a>
+            <a href="wellness.html">WELLNESS</a>
+            <a href="wedding.html">WEDDING</a>
+            <a href="https://eshop.eqkualalumpur.equatorial.com/">E-SHOP</a>
+        </nav>
+    </header>
+
+    <section class="section-container">
+        <div class="grid-2">
+            <div>
+                <h1 class="serif" style="font-size: 3rem; margin: 0;">Meetings & Events</h1>
+                <p class="serif" style="font-size: 1.5rem; color: #888;">Made-to-measure gatherings in a riverside
+                    sanctuary.</p>
+            </div>
+            <div class="intro-desc">
+                <p>EQ Kuala Lumpur sets the stage for inspired meetings and extraordinary events along the River of
+                    Kings. Designed to spark connection and creativity, each venue offers a seamless blend of
+                    sophistication and functionality.</p>
+                <div style="margin-top: 30px;">
+                    <a href="#" class="small-link">Plan Your Event</a> &nbsp; | &nbsp; <a href="#"
+                        class="small-link">Virtual Tour</a>
+                </div>
+            </div>
+        </div>
+        <img src="images/2019-08-14_eq_diamond-ballroom.jpg"
+            class="hero-full" alt="Boardroom">
+    </section>
+
+    <section class="section-container">
+        <h1 class="serif" style="">Truly Great Spaces</h1>
+        <div class="spaces-grid">
+            <div class="img-box">
+                <img src="images/Sapphire-scaled.jpg"
+                    alt="Event setup">
+            </div>
+            <div class="img-box">
+                <img src="images/Sapphire-Thumbnail-1024x683.jpg"
+                    alt="Aerial view">
+            </div>
+            <div class="spaces-text">
+                <p>With 8 versatile venues, each is a masterpiece of light, space, and serenity, suite to all purposes
+                    of gathering—from intimate meetings to large-scale celebrations.</p>
+                <p>From the riverfront Grand Ballroom to the tranquil Courtyard and intimate Ateliers, each setting
+                    flows seamlessly with nature.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-container" style="text-align: center;">
+        <nav class="venue-nav serif">
+            <a class="small-link active">Atelier I</a>
+            <a class="small-link">Atelier II</a>
+            <a class="small-link">Courtyard</a>
+            <a class="small-link">Ballroom</a>
+            <a class="small-link">Salon</a>
+        </nav>
+        <img src="https://images.unsplash.com/photo-1431540015161-0bf868a2d407?auto=format&fit=crop&w=1200"
+            style="width:100%; height: 500px; object-fit: cover;" alt="Venue Detail">
+        <div class="venue-info-block">
+            <h2 class="serif">Atelier I</h2>
+            <div>
+                <p style="color: #999; font-size: 12px; margin-bottom: 10px;">150 SQM | CAPACITY 42 - 110</p>
+                <p>An intimate salon designed for focused conversations and elegant gatherings. Bathed in natural
+                    daylight, Atelier I offers a tranquil setting for inspiring board meetings, private luncheons, or
+                    creative sessions.</p>
+                <a href="#" class="small-link" style="margin-top: 20px; display: inline-block;">Virtual Tour</a> &nbsp;
+                | &nbsp; <a href="#" class="small-link">View Floor Plan</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-container">
+        <div class="feature-row">
+            <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=600" alt="Food">
+            <div class="feature-text">
+                <h3 class="serif">Crafted Gastronomic Experiences</h3>
+                <p>Bespoke menus draw inspiration from global flavours and showcase the finest local ingredients and
+                    resort's Green House. Led by an award-winning culinary team.</p>
+                <a href="#" class="small-link">Discover More</a>
+            </div>
+        </div>
+
+        <div class="feature-row reverse">
+            <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=600"
+                alt="Wellness">
+            <div class="feature-text">
+                <h3 class="serif">A Refined Comfort by the River</h3>
+                <p>Unwind within EQ Kuala Lumpur's urban resort, where spacious suites and villas overlook the tranquil
+                    city soul, each residence blends refined comfort with a sense of place.</p>
+                <a href="#" class="small-link">Discover More</a>
+            </div>
+        </div>
+    </section>
+
+    <div class="banner-360">
+        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200"
+            alt="360 view">
+        <div style="position: absolute; color: white; border: 2px solid white; border-radius: 50%; padding: 20px;"
+            class="serif">360°</div>
+    </div>
+
+    <section class="inquiry-box">
+        <div class="section-container" style="padding: 0 20px;">
+            <div class="grid-2" style="text-align: left;">
+                <h2 class="serif" style="font-size: 2rem;">Plan a Celebration</h2>
+                <p style="font-size: 14px;">Let us create your perfect day. Contact EQ Kuala Lumpur events team to
+                    enquire about an event with us.<br><br>
+                    <a href="#" class="small-link" style="border: 1px solid #333; padding: 10px 20px;">Enquire Now</a>
+                </p>
+            </div>
+
+            <div class="inquiry-grid">
+                <div>
+                    <p><strong>EQ Kuala Lumpur</strong><br>Golden Triangle<br>Kuala Lumpur, 50250<br>Malaysia</p>
+                </div>
+                <div>
+                    <p><strong>Telephone</strong><br>+60 3 2727 7777</p>
+                </div>
+                <div>
+                    <p><strong>Email</strong><br>events@eqkl.com<br>mice@eqkl.com</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+<footer class="site-footer">
+    <div class="footer-content">
+        <div class="footer-column">
+            <div class="footer-logo">
+                <img src="images/logo_eq.png" alt="EQ Logo">
+            </div>
+            <p class="footer-tagline">A Legacy of Luxury</p>
+        </div>
+
+        <div class="footer-column">
+            <h4>Experience</h4>
+            <ul>
+                <li><a href="#">Accommodations</a></li>
+                <li><a href="#">Dining</a></li>
+                <li><a href="#">Wellness</a></li>
+                <li><a href="#">EQ Curates</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-column">
+            <h4>Discover</h4>
+            <ul>
+                <li><a href="#">Our Story</a></li>
+                <li><a href="#">Awards</a></li>
+                <li><a href="#">Gallery</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-column">
+            <h4>Connect</h4>
+            <p class="footer-address">
+                The EQ Kuala Lumpur<br>
+                Golden Triangle<br>
+                Kuala Lumpur, Malaysia
+            </p>
+            <p class="footer-contact">
+                <a href="tel:+60123456789">+60 12 345 6789</a><br>
+                <a href="mailto:reservations@eq.com">reservations@eq.com</a>
+            </p>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>&copy; 2026 EQ Kuala Lumpur. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms & Conditions</a>
+        </div>
+    </div>
+</footer>
+
+</html>

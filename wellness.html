@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wellness | EQ Kuala Lumpur</title>
+    <link href="https://fonts.googleapis.com/css2?family=Baskerville:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+
+    <style>
+        :root {
+            --text-main: #333;
+            --text-muted: #666;
+            --text-light: #999;
+            --serif: 'Baskerville';
+            --spacing-lg: 100px;
+            --spacing-md: 60px;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Baskerville';
+            color: var(--text-main);
+            line-height: 1.7;
+            background-color: #fff;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Typography Utility */
+        .serif {
+            font-family: var(--serif);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 400;
+        }
+
+        .small-link {
+            font-size: 11px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: var(--text-main);
+            border-bottom: 1px solid transparent;
+            transition: 0.3s;
+            font-weight: bold;
+        }
+
+        .small-link:hover {
+            border-bottom: 1px solid var(--text-main);
+        }
+
+        /* Layout Containers */
+        .section-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: var(--spacing-lg) 20px;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: start;
+        }
+
+        /* Header Section */
+        .intro-desc {
+            font-size: 1.5rem;
+            color: var(--text-muted);
+            max-width: 450px;
+        }
+
+        .hero-full {
+            width: 100%;
+            height: 600px;
+            object-fit: cover;
+            margin-top: 40px;
+        }
+
+        /* Truly Great Spaces */
+        .spaces-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .img-box img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .spaces-text {
+            grid-column: 1;
+            max-width: 500px;
+            margin-top: 20px;
+            font-size: 1.5rem;
+            color: var(--text-muted);
+        }
+
+        /* Wellness Details Nav */
+        .venue-nav {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            border-bottom: 1px solid #eee;
+            margin-bottom: 50px;
+        }
+
+        .venue-nav a {
+            padding-bottom: 10px;
+            color: var(--text-light);
+            cursor: pointer;
+        }
+
+        .venue-nav a.active {
+            color: var(--text-main);
+            border-bottom: 1px solid var(--text-main);
+        }
+
+        .venue-info-block {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 60px;
+            margin-top: 40px;
+            text-align: left;
+        }
+
+        /* Feature Sections */
+        .feature-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .feature-row.reverse {
+            direction: rtl;
+        }
+
+        .feature-row.reverse .feature-text {
+            direction: ltr;
+        }
+
+        .feature-text h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .feature-text p {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-bottom: 25px;
+        }
+
+        /* 360 & Inquiry */
+        .banner-360 {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            background: #eee;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: var(--spacing-lg);
+        }
+
+        .banner-360 img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .inquiry-box {
+            background-color: #f4f4f4;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .inquiry-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            max-width: 1000px;
+            margin: 40px auto 0;
+            text-align: left;
+            font-size: 13px;
+            border-top: 1px solid #ddd;
+            padding-top: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="site-header">
+      <div class="header-top">
+        <div class="nav-left">
+          <a href="#" class="lang-selector">ENGLISH ▾</a>
+        </div>
+
+        <div class="nav-center-main">
+          <a href="#">DESTINATIONS</a>
+  <div class="logo-tilde">
+  <a href="index.html">
+    <img src="images/tidle.png" alt="Logo" class="tilde-icon" />
+  </a>
+</div>
+
+          <a href="#">EXPERIENCES</a>
+        </div>
+
+        <div class="nav-right">
+          <a href="#" class="book-btn-fixed">BOOK YOUR STAY</a>
+        </div>
+      </div>
+
+        <nav class="header-bottom">
+            <a href="offers.html" class="">OFFERS</a>
+            <a href="accomodation.html">ACCOMMODATION</a>
+            <a href="dining.html">DINING</a>
+            <a href="meeting.html">MEETINGS & EVENTS</a>
+            <a href="wellness.html">WELLNESS</a>
+            <a href="wedding.html">WEDDING</a>
+            <a href="https://eshop.eqkualalumpur.equatorial.com/">E-SHOP</a>
+        </nav>
+    </header>
+
+    <section class="section-container">
+        <div class="grid-2">
+            <div>
+                <h1 class="serif" style="font-size: 3rem; margin: 0;">Sanctuary of Wellness</h1>
+                <p class="serif" style="font-size: 1.5rem; color: #888;">A holistic retreat in the heart of the city.</p>
+            </div>
+            <div class="intro-desc">
+                <p>Sanctum at EQ is more than a spa; it is a dedicated space for rejuvenation. From state-of-the-art fitness to traditional healing therapies, every detail is designed to restore balance to mind and body.</p>
+                <div style="margin-top: 30px;">
+                    <a href="#" class="small-link">Book a Treatment</a> &nbsp; | &nbsp; <a href="#" class="small-link">Wellness Menu</a>
+                </div>
+            </div>
+        </div>
+        <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=1200" class="hero-full" alt="Sanctum Spa">
+    </section>
+
+    <section class="section-container">
+        <h1 class="serif">Rejuvenating Spaces</h1>
+        <div class="spaces-grid">
+            <div class="img-box">
+                <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800" alt="Infinity Pool">
+            </div>
+            <div class="img-box">
+                <img src="https://images.unsplash.com/photo-1512678080530-7760d81faba6?auto=format&fit=crop&w=600" alt="Treatment Room">
+            </div>
+            <div class="spaces-text">
+                <p>Spanning an entire floor, our wellness facilities offer a comprehensive journey. Discover our 25-meter infinity pool, vitality pools, and private spa suites.</p>
+                <p>Designed with natural materials and soft lighting, Sanctum provides an immediate sense of detachment from the bustling city below.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-container" style="text-align: center;">
+        <nav class="venue-nav serif">
+            <a class="small-link active">Sanctum Spa</a>
+            <a class="small-link">Fitness Centre</a>
+            <a class="small-link">Infinity Pool</a>
+            <a class="small-link">Vitality Pool</a>
+            <a class="small-link">Himalayan Salt Sauna</a>
+        </nav>
+        <img src="https://images.unsplash.com/photo-1596178065887-1198b6148b2b?auto=format&fit=crop&w=1200" style="width:100%; height: 500px; object-fit: cover;" alt="Spa Detail">
+        <div class="venue-info-block">
+            <h2 class="serif">Sanctum Spa</h2>
+            <div>
+                <p style="color: #999; font-size: 12px; margin-bottom: 10px;">DAILY 10:00 AM – 10:00 PM</p>
+                <p>Our award-winning spa features treatments that blend ancient Malay healing traditions with modern skincare science. Each session is tailored to your specific needs by our master therapists.</p>
+                <a href="#" class="small-link" style="margin-top: 20px; display: inline-block;">View Treatment Menu</a> &nbsp; | &nbsp; <a href="#" class="small-link">Special Offers</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-container">
+        <div class="feature-row">
+            <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=600" alt="Gym">
+            <div class="feature-text">
+                <h3 class="serif">Advanced Fitness</h3>
+                <p>Equipped with the latest Technogym cardio and strength training equipment, our fitness centre offers panoramic views of the KL skyline to inspire your workout.</p>
+                <a href="#" class="small-link">Personal Training</a>
+            </div>
+        </div>
+
+        <div class="feature-row reverse">
+            <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=600" alt="Yoga">
+            <div class="feature-text">
+                <h3 class="serif">Mindful Movement</h3>
+                <p>Join our sunrise yoga sessions or private Pilates classes. Find your flow in our tranquil studios designed for peace and concentration.</p>
+                <a href="#" class="small-link">Class Schedule</a>
+            </div>
+        </div>
+    </section>
+
+    <div class="banner-360">
+        <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=1200" alt="360 view">
+        <div style="position: absolute; color: white; border: 2px solid white; border-radius: 50%; padding: 20px;" class="serif">360°</div>
+    </div>
+
+    <section class="inquiry-box">
+        <div class="section-container" style="padding: 0 20px;">
+            <div class="grid-2" style="text-align: left;">
+                <h2 class="serif" style="font-size: 2rem;">Begin Your Journey</h2>
+                <p style="font-size: 14px;">Contact the Sanctum Wellness team to reserve your treatment or inquire about fitness memberships.<br><br>
+                    <a href="#" class="small-link" style="border: 1px solid #333; padding: 10px 20px;">Book Now</a>
+                </p>
+            </div>
+
+
+        </div>
+    </section>
+
+    </body>
+        <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-column">
+                <div class="footer-logo">
+                    <img src="images/logo_eq.png" alt="EQ Logo">
+                </div>
+                <p class="footer-tagline">A Legacy of Luxury</p>
+            </div>
+
+            <div class="footer-column">
+                <h4>Experience</h4>
+                <ul>
+                    <li><a href="#">Accommodations</a></li>
+                    <li><a href="#">Dining</a></li>
+                    <li><a href="#">Wellness</a></li>
+                    <li><a href="#">EQ Curates</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4>Discover</h4>
+                <ul>
+                    <li><a href="#">Our Story</a></li>
+                    <li><a href="#">Awards</a></li>
+                    <li><a href="#">Gallery</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4>Connect</h4>
+                <p class="footer-address">
+                    The EQ Kuala Lumpur<br>
+                    Golden Triangle<br>
+                    Kuala Lumpur, Malaysia
+                </p>
+                <p class="footer-contact">
+                    <a href="tel:+60123456789">+60 12 345 6789</a><br>
+                    <a href="mailto:reservations@eq.com">reservations@eq.com</a>
+                </p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 EQ Kuala Lumpur. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms & Conditions</a>
+            </div>
+        </div>
+    </footer>
+</html>

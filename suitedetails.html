@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Suites | EQ Kuala Lumpur</title>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="style.css" />
+
+    <style>
+        :root {
+            --bg-color: #f4f1ee; 
+            --text-color: #333;
+            --muted-text: #666;
+            --font-serif: 'Libre Baskerville', serif;
+            --font-sans: 'Montserrat', sans-serif;
+            --border-light: #e0ddd8;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: var(--font-serif);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+  
+        /* --- ASYMMETRIC HERO --- */
+        .section-hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            padding: 120px 8% 80px;
+            max-width: 1600px;
+            margin: auto;
+            gap: 80px;
+        }
+
+        .hero-title h1 {
+            font-size: 52px;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 6px;
+            margin-bottom: 20px;
+        }
+
+        .hero-title p { font-size: 22px; font-style: italic; color: var(--muted-text); }
+        .hero-content { font-size: 15px; color: var(--muted-text); line-height: 2; padding-top: 15px; }
+
+        /* --- LIFESTYLE GALLERY --- */
+        .gallery-lifestyle { padding: 0 5% 100px; max-width: 1600px; margin: auto; }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            gap: 20px;
+            height: 85vh;
+        }
+        .gallery-item { overflow: hidden; }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 1.2s ease; }
+        .gallery-item:hover img { transform: scale(1.05); }
+        .gallery-item.large { grid-row: span 2; }
+
+        /* --- AMENITIES --- */
+        .section-amenities { padding: 100px 8%; max-width: 1600px; margin: auto; border-top: 1px solid var(--border-light); }
+        .section-amenities h2 { font-size: 38px; text-transform: uppercase; letter-spacing: 4px; margin-bottom: 80px; font-weight: 400; }
+        .amenities-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 120px; }
+        .amenities-left p { margin-bottom: 30px; font-size: 15px; }
+        .amenities-left strong { 
+            display: block; font-family: var(--font-sans); text-transform: uppercase; 
+            font-size: 11px; letter-spacing: 2px; margin-bottom: 8px; color: #000; 
+        }
+        .amenities-right ul { list-style: none; }
+        .amenities-right li { margin-bottom: 25px; font-size: 16px; color: var(--text-color); max-width: 550px; }
+
+        /* --- VIRTUAL TOUR CTA --- */
+        .virtual-tour-cta { background-color: #fff; padding: 140px 8%; text-align: center; border-top: 1px solid var(--border-light); }
+        .cta-content span { font-family: var(--font-sans); font-size: 12px; letter-spacing: 4px; text-transform: uppercase; color: var(--muted-text); display: block; margin-bottom: 20px; }
+        .cta-content h2 { font-size: 46px; font-weight: 400; letter-spacing: 8px; margin-bottom: 30px; }
+        .btn-black { display: inline-block; padding: 20px 50px; background-color: #000; color: #fff; text-decoration: none; font-family: var(--font-sans); font-size: 11px; letter-spacing: 3px; }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 1024px) {
+            .section-hero, .amenities-grid, .gallery-grid { grid-template-columns: 1fr; height: auto; }
+            .gallery-item.large { height: 50vh; }
+            .gallery-item { height: 40vh; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="site-header">
+        <div class="header-top">
+            <div class="nav-left">
+                <a href="#" class="lang-selector">ENGLISH ▾</a>
+            </div>
+
+            <div class="nav-center-main">
+                <a href="#">DESTINATIONS</a>
+                <div class="logo-tilde">
+                    <a href="index.html">
+                        <img src="images/tidle.png" alt="Logo" class="tilde-icon" />
+                    </a>
+                </div>
+
+                <a href="#">EXPERIENCES</a>
+            </div>
+
+            <div class="nav-right">
+                <a href="#" class="book-btn-fixed">BOOK YOUR STAY</a>
+            </div>
+        </div>
+
+        <nav class="header-bottom">
+            <a href="offers.html" class="">OFFERS</a>
+            <a href="accomodation.html">ACCOMMODATION</a>
+            <a href="dining.html">DINING</a>
+            <a href="meeting.html">MEETINGS & EVENTS</a>
+            <a href="wellness.html">WELLNESS</a>
+            <a href="wedding.html">WEDDING</a>
+            <a href="https://eshop.eqkualalumpur.equatorial.com/">E-SHOP</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="section-hero">
+            <div class="hero-title">
+                <h1>PRESIDENTIAL SUITE</h1>
+                <p>Sophisticated residential living above the heart of the city</p>
+            </div>
+            <div class="hero-content">
+                <p>Discover a higher standard of living. Our Executive Suites offer expansive floor-to-ceiling views of the Kuala Lumpur skyline, featuring a separate master bedroom and a curated living lounge designed for both productivity and repose. Guests enjoy full access to the Equator Club for an elevated stay.</p>
+            </div>
+        </section>
+
+        <section class="gallery-lifestyle">
+            <div class="gallery-grid">
+                <div class="gallery-item large">
+                    <img src="images/room/Presidential-Suite---Bedroom-01.jpg" alt="Suite Living Area">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/room/Presidential-Suite---Living-01.jpg" alt="Master Bedroom">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/room/Presidential-Suite-Ad-01.jpg" alt="Equator Club Lounge">
+                </div>
+            </div>
+        </section>
+
+        <section class="section-amenities">
+            <h2>Suite Features</h2>
+            <div class="amenities-grid">
+                <div class="amenities-left">
+                    <p><strong>Size & Space</strong> 98 sqm with separate living area</p>
+                    <p><strong>Privileges</strong> Exclusive Equator Club Access</p>
+                    <p><strong>Bedding</strong> One King-size EQ Signature Bed</p>
+                    <p><strong>Perspective</strong> Full panoramic city views</p>
+                    <p><strong>Arrival</strong> Personalized check-in at the Equator Club</p>
+                </div>
+                <div class="amenities-right">
+                    <ul>
+                        <li>Generous living lounge with executive work desk and ergonomic seating</li>
+                        <li>Equator Club benefits: Daily breakfast, afternoon tea, and evening cocktails</li>
+                        <li>Master bathroom with deep-soaking bathtub and separate rainforest shower</li>
+                        <li>Premium mini bar selection and Nespresso coffee craftsmanship</li>
+                        <li>Complimentary daily pressing of up to two garments</li>
+                        <li>Smart media hub and high-fidelity sound system</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="virtual-tour-cta">
+            <div class="cta-content">
+                <span>The Suite Collection</span>
+                <h2>VIRTUAL TOUR</h2>
+                <p>Step inside our most prestigious accommodations and explore the refined details of the EQ Suite experience.</p>
+                <br><a href="#" class="btn-black">EXPLORE THE SUITE</a>
+            </div>
+        </section>
+    </main>
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-column">
+                <div class="footer-logo">
+                    <img src="images/logo_eq.png" alt="EQ Logo">
+                </div>
+                <p class="footer-tagline">A Legacy of Luxury</p>
+            </div>
+
+            <div class="footer-column">
+                <h4>Experience</h4>
+                <ul>
+                    <li><a href="#">Accommodations</a></li>
+                    <li><a href="#">Dining</a></li>
+                    <li><a href="#">Wellness</a></li>
+                    <li><a href="#">EQ Curates</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4>Discover</h4>
+                <ul>
+                    <li><a href="#">Our Story</a></li>
+                    <li><a href="#">Awards</a></li>
+                    <li><a href="#">Gallery</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4>Connect</h4>
+                <p class="footer-address">
+                    The EQ Kuala Lumpur<br>
+                    Golden Triangle<br>
+                    Kuala Lumpur, Malaysia
+                </p>
+                <p class="footer-contact">
+                    <a href="tel:+60123456789">+60 12 345 6789</a><br>
+                    <a href="mailto:reservations@eq.com">reservations@eq.com</a>
+                </p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 EQ Kuala Lumpur. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms & Conditions</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
