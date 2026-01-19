@@ -17,64 +17,65 @@
       <source src="video/EQ 30 sec Short version.mp4" type="video/mp4" />
     </video>
     <div class="video-overlay"></div>
+
     <div class="intro-logo" id="mainLogo">
       <img src="images/logo_eq.png" alt="EQ Logo" />
     </div>
+
+    <div class="intro-awards-center" id="centerAward">
+      <img src="images/TL-WORLD_PM.png" alt="Travel + Leisure Award" />
+    </div>
+
     <div class="intro-text">
-      <div class="line" id="line1">
-        Reborn as a sleek 52-story skyscraper,
-      </div>
-      <div class="line" id="line2">
-        the EQ blends its rich heritage with modern luxury
-      </div>
-      <div class="line" id="line3">in the heart of the Golden Triangle.</div>
+      <div class="line" id="line1">#22 In The World By Travel</div>
+
     </div>
   </section>
-<header class="site-header">
-  <div class="header-top">
-    <div class="nav-left">
-      <a href="#" class="lang-selector">ENGLISH ▾</a>
-    </div>
-
-    <div class="nav-center-main">
-      <a href="#" class="panel-trigger">DESTINATIONS</a>
-      <div class="logo-tilde">
-        <a href="index.html">
-          <img src="images/tidle.png" alt="Logo" class="tilde-icon" />
-        </a>
+  <header class="site-header">
+    <div class="header-top">
+      <div class="nav-left">
+        <a href="#" class="lang-selector">ENGLISH ▾</a>
       </div>
-      <a href="#">EXPERIENCES</a>
-    </div>
 
-    <div class="nav-right">
-      <a href="#" class="book-btn-fixed">BOOK YOUR STAY</a>
-    </div>
-  </div>
-
-  <div id="destination-panel" class="mega-panel">
-    <div class="panel-content">
-      <div class="panel-column category-labels">
-        <h3>CITY HOTELS</h3>
+      <div class="nav-center-main">
+        <a href="#" class="panel-trigger">DESTINATIONS</a>
+        <div class="logo-tilde">
+          <a href="index.html">
+            <img src="images/tidle.png" alt="Logo" class="tilde-icon" />
+          </a>
+        </div>
+        <a href="#">EXPERIENCES</a>
       </div>
-      <div class="panel-column destination-links">
-        <a href="#">Kuala Lumpur</a>
-        <a href="#">Penang</a>
-        <a href="#">Ho Chi Minh City</a>
-      </div>
-      <button class="close-panel">✕</button>
-    </div>
-  </div>
 
-  <nav class="header-bottom">
-    <a href="offers.html">OFFERS</a>
-    <a href="accomodation.html">ACCOMMODATION</a>
-    <a href="dining.html">DINING</a>
-    <a href="meeting.html">MEETINGS & EVENTS</a>
-    <a href="wellness.html">WELLNESS</a>
-    <a href="wedding.html">WEDDING</a>
-    <a href="https://eshop.eqkualalumpur.equatorial.com/">E-SHOP</a>
-  </nav>
-</header>
+      <div class="nav-right">
+        <a href="#" class="book-btn-fixed">BOOK YOUR STAY</a>
+      </div>
+    </div>
+
+    <div id="destination-panel" class="mega-panel">
+      <div class="panel-content">
+        <div class="panel-column category-labels">
+          <h3>CITY HOTELS</h3>
+        </div>
+        <div class="panel-column destination-links">
+          <a href="#">Kuala Lumpur</a>
+          <a href="#">Penang</a>
+          <a href="#">Ho Chi Minh City</a>
+        </div>
+        <button class="close-panel">✕</button>
+      </div>
+    </div>
+
+    <nav class="header-bottom">
+      <a href="offers.html">OFFERS</a>
+      <a href="accomodation.html">ACCOMMODATION</a>
+      <a href="dining.html">DINING</a>
+      <a href="meeting.html">MEETINGS & EVENTS</a>
+      <a href="wellness.html">WELLNESS</a>
+      <a href="wedding.html">WEDDING</a>
+      <a href="https://eshop.eqkualalumpur.equatorial.com/">E-SHOP</a>
+    </nav>
+  </header>
 
   <main class="hero-container reveal">
     <h1>The Best Hotel in Malaysia</h1>
@@ -150,7 +151,7 @@
       <img src="images/Swimming Pool Ad 02.jpg" alt="Local Culture Experience" />
     </div>
   </section>
- 
+
   <br /><br /><br />
   <section class="awards-section reveal">
     <h1>Our Awards</h1>
@@ -326,17 +327,30 @@
     // Intro Sequence
     function animateSequence() {
       const logo = document.getElementById("mainLogo");
+      const award = document.getElementById("centerAward");
       const lines = [
         document.getElementById("line1"),
         document.getElementById("line2"),
         document.getElementById("line3"),
       ];
 
-      let totalDelay = 0.5;
-
+      // 1. Show the EQ Logo (Top Left) and keep it there
       setTimeout(() => {
         logo.style.opacity = "1";
       }, 500);
+
+      // 2. Show the Awards Logo (Center)
+      setTimeout(() => {
+        award.style.opacity = "1";
+      }, 1000);
+
+      // 3. Fade out the Awards Logo after 3 seconds
+      setTimeout(() => {
+        award.style.opacity = "0";
+      }, 4000);
+
+      // 4. Start the text lines after the award fades out
+      let totalDelay = 5.0; // Starting after award fade out
 
       lines.forEach((line, lineIndex) => {
         const text = line.textContent;
@@ -351,17 +365,16 @@
           line.appendChild(span);
         });
 
+        // Fade out text lines (but NOT the EQ logo)
         const fadeOutDelay = totalDelay + characters.length * 0.03 + 2.5;
         setTimeout(() => {
           line.style.transition = "opacity 1s ease";
           line.style.opacity = "0";
-          if (lineIndex === 2) logo.style.opacity = "0";
         }, fadeOutDelay * 1000);
 
         totalDelay = fadeOutDelay + 1;
       });
     }
-
     window.addEventListener("load", () => {
       animateSequence();
       reveal(); // Check visibility on load
@@ -400,25 +413,25 @@
       panel.classList.remove('active');
     });
 
-    document.querySelector('.panel-trigger').addEventListener('click', function(e) {
-  e.preventDefault();
-  document.getElementById('destination-panel').classList.toggle('active');
-});
+    document.querySelector('.panel-trigger').addEventListener('click', function (e) {
+      e.preventDefault();
+      document.getElementById('destination-panel').classList.toggle('active');
+    });
 
-document.querySelector('.close-panel').addEventListener('click', function() {
-  document.getElementById('destination-panel').classList.remove('active');
-});
+    document.querySelector('.close-panel').addEventListener('click', function () {
+      document.getElementById('destination-panel').classList.remove('active');
+    });
 
-// Optional: Close if user clicks outside the panel
-window.addEventListener('click', function(e) {
-  const panel = document.getElementById('destination-panel');
-  const trigger = document.querySelector('.panel-trigger');
-  if (!panel.contains(e.target) && e.target !== trigger) {
-    panel.classList.remove('active');
-  }
-});
+    // Optional: Close if user clicks outside the panel
+    window.addEventListener('click', function (e) {
+      const panel = document.getElementById('destination-panel');
+      const trigger = document.querySelector('.panel-trigger');
+      if (!panel.contains(e.target) && e.target !== trigger) {
+        panel.classList.remove('active');
+      }
+    });
   </script>
-  
+
 </body>
 
 </html>

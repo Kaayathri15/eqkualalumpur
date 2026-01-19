@@ -65,15 +65,41 @@
             z-index: 1;
         }
 
+        /* Fixed Logo Top-Left */
         .intro-logo {
+            position: absolute;
+            top: 40px;
+            /* Distance from top */
+            left: 40px;
+            /* Distance from left */
+            transform: none;
+            /* Remove the centering translate */
+            width: 100px;
+            /* Smaller size for corner placement */
+            z-index: 15;
+            opacity: 0;
+            transition: opacity 1.5s ease;
+        }
+
+        /* Awards Logo Center Screen */
+        .intro-awards-center {
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 150px;
+            width: 250px;
+            /* Adjust size as needed */
             z-index: 10;
             opacity: 0;
-            transition: opacity 1.5s ease;
+            transition: opacity 1.5s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .intro-awards-center img {
+            width: 100%;
+            height: auto;
         }
 
         .intro-logo img {
@@ -160,26 +186,31 @@
         }
 
         /* The Tilde Logo in Center */
-      /* Update the container to handle the image */
-.logo-tilde {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}/* Style the image itself */
-.tilde-icon {
-    height: 40px; /* Adjust height to fit your header scale */
-    width: auto;  /* Maintains aspect ratio */
-    display: block;
-}
+        /* Update the container to handle the image */
+        .logo-tilde {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
-/* Adjust the center-main gap if the image is wider than the text was */
-.nav-center-main {
-    flex: 2;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 40px; /* Slightly reduced gap to accommodate image width */
-}
+        /* Style the image itself */
+        .tilde-icon {
+            height: 40px;
+            /* Adjust height to fit your header scale */
+            width: auto;
+            /* Maintains aspect ratio */
+            display: block;
+        }
+
+        /* Adjust the center-main gap if the image is wider than the text was */
+        .nav-center-main {
+            flex: 2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            /* Slightly reduced gap to accommodate image width */
+        }
 
         /* Bottom Row Styling */
         .header-bottom {
@@ -761,218 +792,236 @@
 
         /** BOOKING PANEL */
         /* Booking Panel Styles */
-.booking-panel {
-    position: fixed;
-    top: -100%; /* Start hidden above the screen */
-    left: 0;
-    width: 100%;
-    background: #f4f1ee; /* Matches your cream background */
-    z-index: 2000;
-    transition: top 0.5s ease-in-out;
-    padding: 60px 8% 40px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-}
+        .booking-panel {
+            position: fixed;
+            top: -100%;
+            /* Start hidden above the screen */
+            left: 0;
+            width: 100%;
+            background: #f4f1ee;
+            /* Matches your cream background */
+            z-index: 2000;
+            transition: top 0.5s ease-in-out;
+            padding: 60px 8% 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
 
-.booking-panel.active {
-    top: 0; /* Slide down to the top */
-}
+        .booking-panel.active {
+            top: 0;
+            /* Slide down to the top */
+        }
 
-.panel-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 40px;
-    border-bottom: 1px solid #e0ddd8;
-    padding-bottom: 20px;
-}
+        .panel-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 40px;
+            border-bottom: 1px solid #e0ddd8;
+            padding-bottom: 20px;
+        }
 
-.panel-title h2 {
-    font-family: var(--font-serif);
-    font-weight: 400;
-    font-size: 32px;
-    letter-spacing: 2px;
-}
+        .panel-title h2 {
+            font-family: var(--font-serif);
+            font-weight: 400;
+            font-size: 32px;
+            letter-spacing: 2px;
+        }
 
-.panel-title p {
-    font-family: var(--font-sans);
-    font-size: 10px;
-    letter-spacing: 1px;
-    margin-top: 10px;
-    color: #666;
-}
+        .panel-title p {
+            font-family: var(--font-sans);
+            font-size: 10px;
+            letter-spacing: 1px;
+            margin-top: 10px;
+            color: #666;
+        }
 
-.close-btn {
-    background: none;
-    border: none;
-    font-size: 40px;
-    cursor: pointer;
-    font-weight: 200;
-}
+        .close-btn {
+            background: none;
+            border: none;
+            font-size: 40px;
+            cursor: pointer;
+            font-weight: 200;
+        }
 
-/* Content Layout */
-.panel-content {
-    display: grid;
-    grid-template-columns: 350px 1fr;
-    gap: 60px;
-}
+        /* Content Layout */
+        .panel-content {
+            display: grid;
+            grid-template-columns: 350px 1fr;
+            gap: 60px;
+        }
 
-.input-group {
-    margin-bottom: 25px;
-    border-bottom: 1px solid #333;
-    padding-bottom: 5px;
-}
+        .input-group {
+            margin-bottom: 25px;
+            border-bottom: 1px solid #333;
+            padding-bottom: 5px;
+        }
 
-.input-group label {
-    display: block;
-    font-family: var(--font-sans);
-    font-size: 10px;
-    letter-spacing: 1px;
-    margin-bottom: 5px;
-}
+        .input-group label {
+            display: block;
+            font-family: var(--font-sans);
+            font-size: 10px;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
 
-.input-group select, .input-group input {
-    width: 100%;
-    background: none;
-    border: none;
-    font-family: var(--font-sans);
-    font-size: 14px;
-    padding: 5px 0;
-    outline: none;
-}
+        .input-group select, .input-group input {
+            width: 100%;
+            background: none;
+            border: none;
+            font-family: var(--font-sans);
+            font-size: 14px;
+            padding: 5px 0;
+            outline: none;
+        }
 
-.guest-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 15px;
-}
+        .guest-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 15px;
+        }
 
-.panel-calendar {
-    display: flex;
-    gap: 40px;
-}
+        .panel-calendar {
+            display: flex;
+            gap: 40px;
+        }
 
-/* Footer Buttons */
-.panel-footer {
-    margin-top: 40px;
-    display: flex;
-    align-items: center;
-    gap: 20px;
-}
+        /* Footer Buttons */
+        .panel-footer {
+            margin-top: 40px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
 
-.btn-primary-black {
-    background: #252b31;
-    color: #fff;
-    border: none;
-    padding: 15px 60px;
-    font-family: var(--font-sans);
-    letter-spacing: 2px;
-    cursor: pointer;
-    flex-grow: 1;
-}
+        .btn-primary-black {
+            background: #252b31;
+            color: #fff;
+            border: none;
+            padding: 15px 60px;
+            font-family: var(--font-sans);
+            letter-spacing: 2px;
+            cursor: pointer;
+            flex-grow: 1;
+        }
 
-.btn-secondary {
-    background: none;
-    border: 1px solid #252b31;
-    padding: 15px 30px;
-    font-family: var(--font-sans);
-    letter-spacing: 1px;
-    cursor: pointer;
-}
-/* Customizing Flatpickr to match Capella/EQ style */
-.flatpickr-calendar {
-    background: transparent !important;
-    box-shadow: none !important;
-    border: none !important;
-    font-family: 'Montserrat', sans-serif !important;
-}
+        .btn-secondary {
+            background: none;
+            border: 1px solid #252b31;
+            padding: 15px 30px;
+            font-family: var(--font-sans);
+            letter-spacing: 1px;
+            cursor: pointer;
+        }
 
-.flatpickr-month {
-    color: #000 !important;
-    font-family: 'Libre Baskerville', serif !important;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-}
+        /* Customizing Flatpickr to match Capella/EQ style */
+        .flatpickr-calendar {
+            background: transparent !important;
+            box-shadow: none !important;
+            border: none !important;
+            font-family: 'Montserrat', sans-serif !important;
+        }
 
-.flatpickr-day.selected, .flatpickr-day.startRange, .flatpickr-day.endRange {
-    background: #252b31 !important; /* Capella's dark grey/black */
-    border-color: #252b31 !important;
-    color: #fff !important;
-    border-radius: 0 !important; /* Square selection for lifestyle look */
-}
+        .flatpickr-month {
+            color: #000 !important;
+            font-family: 'Libre Baskerville', serif !important;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
 
-.flatpickr-day.inRange {
-    background: #e9e5e1 !important; /* Subtle range highlight */
-    box-shadow: none !important;
-}
+        .flatpickr-day.selected, .flatpickr-day.startRange, .flatpickr-day.endRange {
+            background: #252b31 !important;
+            /* Capella's dark grey/black */
+            border-color: #252b31 !important;
+            color: #fff !important;
+            border-radius: 0 !important;
+            /* Square selection for lifestyle look */
+        }
 
-.date-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-}
-/* The Hidden Panel Container */
-.mega-panel {
-  position: absolute;
-  top: 60px; /* Adjust based on your header height */
-  left: 0;
-  width: 100%;
-  background: #f8f8f8; /* Light grey like the screenshot */
-  border-bottom: 1px solid #ddd;
-  display: none; /* Hidden by default */
-  z-index: 1000;
-  padding: 40px 10%;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-}
+        .flatpickr-day.inRange {
+            background: #e9e5e1 !important;
+            /* Subtle range highlight */
+            box-shadow: none !important;
+        }
 
-.mega-panel.active {
-  display: block;
-  animation: fadeIn 0.3s ease-in-out;
-}
+        .date-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
 
-.panel-content {
-  display: flex;
-  justify-content: flex-start;
-  gap: 100px;
-  position: relative;
-}
+        /* The Hidden Panel Container */
+        .mega-panel {
+            position: absolute;
+            top: 60px;
+            /* Adjust based on your header height */
+            left: 0;
+            width: 100%;
+            background: #f8f8f8;
+            /* Light grey like the screenshot */
+            border-bottom: 1px solid #ddd;
+            display: none;
+            /* Hidden by default */
+            z-index: 1000;
+            padding: 40px 10%;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        }
 
-.panel-column h3 {
-  font-size: 14px;
-  letter-spacing: 2px;
-  color: #666;
-  text-transform: uppercase;
-  border-bottom: 1px solid #ccc;
-  padding-bottom: 10px;
-}
+        .mega-panel.active {
+            display: block;
+            animation: fadeIn 0.3s ease-in-out;
+        }
 
-.destination-links {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px 40px;
-}
+        .panel-content {
+            display: flex;
+            justify-content: flex-start;
+            gap: 100px;
+            position: relative;
+        }
 
-.destination-links a {
-  text-decoration: none;
-  color: #333;
-  font-size: 16px;
-  transition: color 0.2s;
-}
+        .panel-column h3 {
+            font-size: 14px;
+            letter-spacing: 2px;
+            color: #666;
+            text-transform: uppercase;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 10px;
+        }
 
-.destination-links a:hover {
-  color: #888;
-}
+        .destination-links {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px 40px;
+        }
 
-.close-panel {
-  position: absolute;
-  right: 0;
-  top: 0;
-  background: none;
-  border: none;
-  font-size: 24px;
-  cursor: pointer;
-}
+        .destination-links a {
+            text-decoration: none;
+            color: #333;
+            font-size: 16px;
+            transition: color 0.2s;
+        }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(-10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
+        .destination-links a:hover {
+            color: #888;
+        }
+
+        .close-panel {
+            position: absolute;
+            right: 0;
+            top: 0;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
