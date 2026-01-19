@@ -290,38 +290,51 @@
 
 <body>
 
-    <header class="site-header">
-        <div class="header-top">
-            <div class="nav-left">
-                <a href="#" class="lang-selector">ENGLISH ▾</a>
-            </div>
+  <header class="site-header">
+    <div class="header-top">
+      <div class="nav-left">
+        <a href="#" class="lang-selector">ENGLISH ▾</a>
+      </div>
 
-            <div class="nav-center-main">
-                <a href="#">DESTINATIONS</a>
-                <div class="logo-tilde">
-                    <a href="index.html">
-                        <img src="images/tidle.png" alt="Logo" class="tilde-icon" />
-                    </a>
-                </div>
-
-                <a href="#">EXPERIENCES</a>
-            </div>
-
-            <div class="nav-right">
-                <a href="#" class="book-btn-fixed">BOOK YOUR STAY</a>
-            </div>
+      <div class="nav-center-main">
+        <a href="#" class="panel-trigger">DESTINATIONS</a>
+        <div class="logo-tilde">
+          <a href="index.html">
+            <img src="images/tidle.png" alt="Logo" class="tilde-icon" />
+          </a>
         </div>
+        <a href="#">EXPERIENCES</a>
+      </div>
 
-        <nav class="header-bottom">
-            <a href="offers.html" class="">OFFERS</a>
-            <a href="accomodation.html">ACCOMMODATION</a>
-            <a href="dining.html">DINING</a>
-            <a href="meeting.html">MEETINGS & EVENTS</a>
-            <a href="wellness.html">WELLNESS</a>
-            <a href="wedding.html">WEDDING</a>
-            <a href="https://eshop.eqkualalumpur.equatorial.com/">E-SHOP</a>
-        </nav>
-    </header>
+      <div class="nav-right">
+        <a href="#" class="book-btn-fixed">BOOK YOUR STAY</a>
+      </div>
+    </div>
+
+    <div id="destination-panel" class="mega-panel">
+      <div class="panel-content">
+        <div class="panel-column category-labels">
+          <h3>CITY HOTELS</h3>
+        </div>
+        <div class="panel-column destination-links">
+          <a href="#">Kuala Lumpur</a>
+          <a href="#">Penang</a>
+          <a href="#">Ho Chi Minh City</a>
+        </div>
+        <button class="close-panel">✕</button>
+      </div>
+    </div>
+
+    <nav class="header-bottom">
+      <a href="offers.html">OFFERS</a>
+      <a href="accomodation.html">ACCOMMODATION</a>
+      <a href="dining.html">DINING</a>
+      <a href="meeting.html">MEETINGS & EVENTS</a>
+      <a href="wellness.html">WELLNESS</a>
+      <a href="wedding.html">WEDDING</a>
+      <a href="https://eshop.eqkualalumpur.equatorial.com/">E-SHOP</a>
+    </nav>
+  </header>
 
     <main>
         <section class="section-hero">
@@ -442,5 +455,53 @@
     </footer>
 
 </body>
+  <script>
+    // Initialize Flatpickr
+    flatpickr("#inline-calendar", {
+      inline: true,           // Always visible
+      mode: "range",          // Allow selecting a start and end date
+      showMonths: 2,          // Dual month view like your screenshot
+      minDate: "today",       // Prevent booking in the past
+      dateFormat: "Y-m-d",
+      onChange: function (selectedDates, dateStr, instance) {
+        // Update the display fields when user clicks dates
+        if (selectedDates.length === 2) {
+          document.getElementById('arrival-display').value = selectedDates[0].toLocaleDateString();
+          document.getElementById('departure-display').value = selectedDates[1].toLocaleDateString();
+        }
+      }
+    });
 
+    // Toggle Booking Panel Logic
+    const bookBtn = document.querySelector('.book-btn-fixed');
+    const panel = document.getElementById('booking-panel');
+    const closeBtn = document.getElementById('close-panel');
+
+    bookBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      panel.classList.add('active');
+    });
+
+    closeBtn.addEventListener('click', () => {
+      panel.classList.remove('active');
+    });
+
+    document.querySelector('.panel-trigger').addEventListener('click', function (e) {
+      e.preventDefault();
+      document.getElementById('destination-panel').classList.toggle('active');
+    });
+
+    document.querySelector('.close-panel').addEventListener('click', function () {
+      document.getElementById('destination-panel').classList.remove('active');
+    });
+
+    // Optional: Close if user clicks outside the panel
+    window.addEventListener('click', function (e) {
+      const panel = document.getElementById('destination-panel');
+      const trigger = document.querySelector('.panel-trigger');
+      if (!panel.contains(e.target) && e.target !== trigger) {
+        panel.classList.remove('active');
+      }
+    });
+  </script>
 </html>
