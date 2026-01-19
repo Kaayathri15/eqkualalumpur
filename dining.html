@@ -2,13 +2,19 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>EQ | A Legacy of Luxury</title>
-  <link href="https://fonts.googleapis.com/css2?family=Baskerville:wght@400;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EQ | A Legacy of Luxury</title>
+    <link href="https://fonts.googleapis.com/css2?family=Baskerville:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <link rel="stylesheet" href="style.css" />
+    <script type="text/javascript" src="https://cdn.weglot.com/weglot.min.js"></script>
+    <script>
+        Weglot.initialize({
+            api_key: 'wg_f9bba43040e5e98486123e51419904ca4'
+        });
+    </script>
     <style>
         /* --- RESET & BASE --- */
         * {
@@ -166,19 +172,126 @@
             text-transform: uppercase;
         }
 
-        /* --- RESERVATION SECTION --- */
-        .reservation-section {
-            padding: 100px 10%;
-            border-top: 1px solid #eee;
-            background-color: #fafafa;
-        }
+      
+/* --- MATCHING THE VIRTUAL TOUR DESIGN --- */
+.reservation-section {
+    padding: 100px 20px;
+    background-color: #fff; /* Pure white to match the screenshot */
+    text-align: center;
+    border-top: 1px solid #eee;
+}
 
-        .res-flex {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-        }
+.res-container {
+    max-width: 600px;
+    margin: 0 auto;
+}
 
+.res-subtitle {
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: #666;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.res-title {
+    font-family: 'serif', 'Times New Roman';
+    font-size: 32px;
+    letter-spacing: 5px;
+    font-weight: 400;
+    margin-bottom: 25px;
+    color: #1a1a1a;
+}
+
+.res-description {
+    font-family: 'serif', 'Times New Roman';
+    font-size: 15px;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 40px;
+}
+
+/* The Black Square Button from your Screenshot */
+.reserve-btn-black {
+    background-color: #000;
+    color: #fff;
+    padding: 18px 45px;
+    border: none;
+    font-size: 12px;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: opacity 0.3s;
+    text-transform: uppercase;
+}
+
+.reserve-btn-black:hover {
+    opacity: 0.8;
+}
+
+/* --- MODAL FORM STYLES (Keep existing) --- */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(255, 255, 255, 0.95); /* Light overlay for cleaner look */
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: #fff;
+    padding: 50px;
+    width: 100%;
+    max-width: 450px;
+    border: 1px solid #eee;
+}
+/* --- MODAL FORM STYLES --- */
+.modal-overlay {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.7);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: #fff;
+    padding: 40px;
+    width: 90%;
+    max-width: 400px;
+    position: relative;
+    text-align: center;
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px; right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+#reservationForm input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+}
+
+.form-row { display: flex; gap: 10px; }
+
+.submit-btn {
+    width: 100%;
+    background: #000;
+    color: #fff;
+    padding: 12px;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+}
         @media (max-width: 1024px) {
 
             .intro-split-grid,
@@ -201,7 +314,7 @@
     <header class="site-header">
         <div class="header-top">
             <div class="nav-left">
-                <a href="#" class="lang-selector">ENGLISH ▾</a>
+                <div id="weglot_here"></div>
             </div>
 
             <div class="nav-center-main">
@@ -240,9 +353,9 @@
             </div>
             <div class="intro-col-right">
                 <p class="intro-description">
-                    Savour authentic Thai family recipes, luxuriate in the dishes of a celebrated 3 Michelin-starred
-                    chef,
-                    or indulge in decadent patisserie and craft cocktails.
+                    Contemporary European dining reaches a whole new level – literally and lavishly. Sabayon at Sky51
+                    combines classic with contemporary and boasts an extensive wine list to be enjoyed with the backdrop
+                    of the Petronas Twin Towers in the evening.
                 </p>
             </div>
         </div>
@@ -284,78 +397,93 @@
             </div>
         </section>
     </main>
+<section class="reservation-section">
+    <div class="res-container">
+        <p class="res-subtitle">THE FULL EXPERIENCE</p>
+        
+        <h2 class="res-title">MAKE A RESERVATION</h2>
+        
+        <p class="res-description">
+            Contact local reservations to book a restaurant at EQ Kuala Lumpur 
+            and explore every curated detail of our culinary offerings.
+        </p>
 
-    <section class="reservation-section">
-        <div class="res-flex">
-            <h1 class="">Make a <br> Reservation</h1>
-            <div class="intro-description">
-                <p>Contact local reservations to book a restaurant at EQ Kuala Lumpur</p>
-                <a href="#" class="enquire-link">Enquire Now</a>
+        <button class="reserve-btn-black" onclick="toggleForm()">RESERVE NOW</button>
+    </div>
+</section>
+
+<div id="resModal" class="modal-overlay">
+    <div class="modal-content">
+        <span class="close-btn" onclick="toggleForm()">&times;</span>
+        <h3 style="font-family: serif; letter-spacing: 2px;">RESERVATION DETAILS</h3>
+        <form id="reservationForm">
+            <input type="text" placeholder="Full Name" required>
+            <input type="email" placeholder="Email Address" required>
+            <div class="form-row">
+                <input type="date" required>
+                <input type="time" required>
             </div>
-            <div class="res-icon">
-                <svg width="60" height="80" viewBox="0 0 40 80">
-                    <rect x="15" y="10" width="10" height="60" fill="#ddd" />
-                    <circle cx="20" cy="5" r="5" fill="#ddd" />
-                </svg>
+            <input type="number" placeholder="Number of Guests" min="1" required>
+            <button type="submit" class="submit-btn">CONFIRM BOOKING</button>
+        </form>
+    </div>
+</div>
+    <div id="booking-panel" class="booking-panel">
+        <div class="panel-header">
+            <div class="panel-title">
+                <h2>Select Destination & Dates</h2>
+                <p>CHOOSE YOUR DATES BELOW AND CHECK AVAILABILITY FOR YOUR STAY</p>
+            </div>
+            <button id="close-panel" class="close-btn">&times;</button>
+        </div>
+        <div class="panel-content">
+            <div class="panel-inputs">
+                <div class="input-group">
+                    <label>DESTINATION</label>
+                    <select>
+                        <option>EQ KUALA LUMPUR</option>
+                    </select>
+                </div>
+
+                <div class="date-row">
+                    <div class="input-group">
+                        <label>ARRIVAL DATE</label>
+                        <input type="text" id="arrival-display" placeholder="Select Date" readonly>
+                    </div>
+                    <div class="input-group">
+                        <label>DEPARTURE DATE</label>
+                        <input type="text" id="departure-display" placeholder="Select Date" readonly>
+                    </div>
+                </div>
+
+                <div class="guest-row">
+                    <div class="input-group">
+                        <label>ADULTS</label>
+                        <select>
+                            <option>1</option>
+                            <option selected>2</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label>KIDS</label>
+                        <select>
+                            <option>0</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel-calendar">
+                <div id="inline-calendar"></div>
             </div>
         </div>
-    </section>
-  <div id="booking-panel" class="booking-panel">
-    <div class="panel-header">
-      <div class="panel-title">
-        <h2>Select Destination & Dates</h2>
-        <p>CHOOSE YOUR DATES BELOW AND CHECK AVAILABILITY FOR YOUR STAY</p>
-      </div>
-      <button id="close-panel" class="close-btn">&times;</button>
-    </div>
-    <div class="panel-content">
-      <div class="panel-inputs">
-        <div class="input-group">
-          <label>DESTINATION</label>
-          <select>
-            <option>EQ KUALA LUMPUR</option>
-          </select>
+
+        <div class="panel-footer">
+            <button class="btn-secondary">MODIFY MY RESERVATION</button>
+            <button class="btn-primary-black">CHECK AVAILABILITY</button>
+
         </div>
-
-        <div class="date-row">
-          <div class="input-group">
-            <label>ARRIVAL DATE</label>
-            <input type="text" id="arrival-display" placeholder="Select Date" readonly>
-          </div>
-          <div class="input-group">
-            <label>DEPARTURE DATE</label>
-            <input type="text" id="departure-display" placeholder="Select Date" readonly>
-          </div>
-        </div>
-
-        <div class="guest-row">
-          <div class="input-group">
-            <label>ADULTS</label>
-            <select>
-              <option>1</option>
-              <option selected>2</option>
-            </select>
-          </div>
-          <div class="input-group">
-            <label>KIDS</label>
-            <select>
-              <option>0</option>
-            </select>
-          </div>
-        </div>
-      </div>
-
-      <div class="panel-calendar">
-        <div id="inline-calendar"></div>
-      </div>
     </div>
-
-    <div class="panel-footer">
-      <button class="btn-secondary">MODIFY MY RESERVATION</button>
-      <button class="btn-primary-black">CHECK AVAILABILITY</button>
-
-    </div>
-  </div>
     <script>
         const restaurantData = {
             nipah: {
@@ -469,21 +597,21 @@
         </div>
     </footer>
 </body>
-  <script>
+<script>
     // Initialize Flatpickr
     flatpickr("#inline-calendar", {
-      inline: true,           // Always visible
-      mode: "range",          // Allow selecting a start and end date
-      showMonths: 2,          // Dual month view like your screenshot
-      minDate: "today",       // Prevent booking in the past
-      dateFormat: "Y-m-d",
-      onChange: function (selectedDates, dateStr, instance) {
-        // Update the display fields when user clicks dates
-        if (selectedDates.length === 2) {
-          document.getElementById('arrival-display').value = selectedDates[0].toLocaleDateString();
-          document.getElementById('departure-display').value = selectedDates[1].toLocaleDateString();
+        inline: true,           // Always visible
+        mode: "range",          // Allow selecting a start and end date
+        showMonths: 2,          // Dual month view like your screenshot
+        minDate: "today",       // Prevent booking in the past
+        dateFormat: "Y-m-d",
+        onChange: function (selectedDates, dateStr, instance) {
+            // Update the display fields when user clicks dates
+            if (selectedDates.length === 2) {
+                document.getElementById('arrival-display').value = selectedDates[0].toLocaleDateString();
+                document.getElementById('departure-display').value = selectedDates[1].toLocaleDateString();
+            }
         }
-      }
     });
 
     // Toggle Booking Panel Logic
@@ -492,30 +620,47 @@
     const closeBtn = document.getElementById('close-panel');
 
     bookBtn.addEventListener('click', (e) => {
-      e.preventDefault();
-      panel.classList.add('active');
+        e.preventDefault();
+        panel.classList.add('active');
     });
 
     closeBtn.addEventListener('click', () => {
-      panel.classList.remove('active');
+        panel.classList.remove('active');
     });
 
     document.querySelector('.panel-trigger').addEventListener('click', function (e) {
-      e.preventDefault();
-      document.getElementById('destination-panel').classList.toggle('active');
+        e.preventDefault();
+        document.getElementById('destination-panel').classList.toggle('active');
     });
 
     document.querySelector('.close-panel').addEventListener('click', function () {
-      document.getElementById('destination-panel').classList.remove('active');
+        document.getElementById('destination-panel').classList.remove('active');
     });
 
     // Optional: Close if user clicks outside the panel
     window.addEventListener('click', function (e) {
-      const panel = document.getElementById('destination-panel');
-      const trigger = document.querySelector('.panel-trigger');
-      if (!panel.contains(e.target) && e.target !== trigger) {
-        panel.classList.remove('active');
-      }
+        const panel = document.getElementById('destination-panel');
+        const trigger = document.querySelector('.panel-trigger');
+        if (!panel.contains(e.target) && e.target !== trigger) {
+            panel.classList.remove('active');
+        }
     });
-  </script>
+    function toggleForm() {
+    const modal = document.getElementById('resModal');
+    if (modal.style.display === "flex") {
+        modal.style.display = "none";
+    } else {
+        modal.style.display = "flex";
+    }
+}
+
+// Close modal if user clicks outside of the box
+window.onclick = function(event) {
+    const modal = document.getElementById('resModal');
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+</script>
+
 </html>

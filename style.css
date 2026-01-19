@@ -1024,4 +1024,49 @@
                 opacity: 1;
                 transform: translateY(0);
             }
-        }
+        }  
+
+        /* 1. Hide the Google Logo and "Powered by" text */
+    .goog-logo-link, 
+    .goog-te-gadget span, 
+    .goog-te-banner-frame {
+        display: none !important;
+    }
+
+    /* 2. Style the container to match your nav */
+    .goog-te-gadget {
+        font-family: 'serif', 'Times New Roman'; /* Match your "THE B..." font */
+        text-transform: uppercase;
+    }
+
+    /* 3. Style the actual Dropdown box */
+    #google_translate_element select {
+        background-color: transparent;
+        color: #000; /* Change to #fff if your nav background is dark */
+        border: none;
+        padding: 5px 0;
+        font-size: 14px;
+        font-weight: 500;
+        cursor: pointer;
+        outline: none;
+        appearance: none; /* Removes default browser arrow */
+        -webkit-appearance: none;
+    }
+
+    /* 4. Optional: Add your own arrow back if you hid the default one */
+    #google_translate_element {
+        position: relative;
+    }
+    #google_translate_element::after {
+        content: " ▾";
+        font-size: 12px;
+        pointer-events: none;
+    }
+    
+    /* 5. Fix the awkward white background from your screenshot */
+    .skiptranslate {
+        background-color: transparent !important;
+    }
+    .goog-te-banner-frame {
+    display: none !important;
+}

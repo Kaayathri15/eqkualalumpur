@@ -9,7 +9,15 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
   <link rel="stylesheet" href="style.css" />
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script type="text/javascript" src="https://cdn.weglot.com/weglot.min.js"></script>
+<script>
+    Weglot.initialize({
+        api_key: 'wg_f9bba43040e5e98486123e51419904ca4'
+    });
+</script>
+<style>
 
+</style>
 </head>
 
 <body>
@@ -34,9 +42,9 @@
   </section>
   <header class="site-header">
     <div class="header-top">
-      <div class="nav-left">
-        <a href="#" class="lang-selector">ENGLISH ▾</a>
-      </div>
+  <div class="nav-left">
+    <div id="weglot_here"></div> 
+</div>
 
       <div class="nav-center-main">
         <a href="#" class="panel-trigger">DESTINATIONS</a>
@@ -122,7 +130,7 @@
           Culinary journeys that celebrate both local flavors and
           international excellence.
         </p>
-        <a href="" class="discover-link">DISCOVER MORE</a>
+        <a href="accomodation.html" class="discover-link">DISCOVER MORE</a>
       </div>
     </div>
   </main>
@@ -432,7 +440,17 @@
       }
     });
   </script>
-
-</body>
+<script type="text/javascript">
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+      pageLanguage: 'en',
+      // This allows you to pick specific languages or leave it for all
+      includedLanguages: 'en,es,fr,de,zh-CN,ar', 
+      layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+      autoDisplay: false
+    }, 'google_translate_element');
+  }
+</script>
+<script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script></body>
 
 </html>
