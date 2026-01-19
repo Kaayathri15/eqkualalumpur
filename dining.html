@@ -300,7 +300,62 @@
             </div>
         </div>
     </section>
+  <div id="booking-panel" class="booking-panel">
+    <div class="panel-header">
+      <div class="panel-title">
+        <h2>Select Destination & Dates</h2>
+        <p>CHOOSE YOUR DATES BELOW AND CHECK AVAILABILITY FOR YOUR STAY</p>
+      </div>
+      <button id="close-panel" class="close-btn">&times;</button>
+    </div>
+    <div class="panel-content">
+      <div class="panel-inputs">
+        <div class="input-group">
+          <label>DESTINATION</label>
+          <select>
+            <option>EQ KUALA LUMPUR</option>
+          </select>
+        </div>
 
+        <div class="date-row">
+          <div class="input-group">
+            <label>ARRIVAL DATE</label>
+            <input type="text" id="arrival-display" placeholder="Select Date" readonly>
+          </div>
+          <div class="input-group">
+            <label>DEPARTURE DATE</label>
+            <input type="text" id="departure-display" placeholder="Select Date" readonly>
+          </div>
+        </div>
+
+        <div class="guest-row">
+          <div class="input-group">
+            <label>ADULTS</label>
+            <select>
+              <option>1</option>
+              <option selected>2</option>
+            </select>
+          </div>
+          <div class="input-group">
+            <label>KIDS</label>
+            <select>
+              <option>0</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel-calendar">
+        <div id="inline-calendar"></div>
+      </div>
+    </div>
+
+    <div class="panel-footer">
+      <button class="btn-secondary">MODIFY MY RESERVATION</button>
+      <button class="btn-primary-black">CHECK AVAILABILITY</button>
+
+    </div>
+  </div>
     <script>
         const restaurantData = {
             nipah: {
@@ -414,5 +469,53 @@
         </div>
     </footer>
 </body>
+  <script>
+    // Initialize Flatpickr
+    flatpickr("#inline-calendar", {
+      inline: true,           // Always visible
+      mode: "range",          // Allow selecting a start and end date
+      showMonths: 2,          // Dual month view like your screenshot
+      minDate: "today",       // Prevent booking in the past
+      dateFormat: "Y-m-d",
+      onChange: function (selectedDates, dateStr, instance) {
+        // Update the display fields when user clicks dates
+        if (selectedDates.length === 2) {
+          document.getElementById('arrival-display').value = selectedDates[0].toLocaleDateString();
+          document.getElementById('departure-display').value = selectedDates[1].toLocaleDateString();
+        }
+      }
+    });
 
+    // Toggle Booking Panel Logic
+    const bookBtn = document.querySelector('.book-btn-fixed');
+    const panel = document.getElementById('booking-panel');
+    const closeBtn = document.getElementById('close-panel');
+
+    bookBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      panel.classList.add('active');
+    });
+
+    closeBtn.addEventListener('click', () => {
+      panel.classList.remove('active');
+    });
+
+    document.querySelector('.panel-trigger').addEventListener('click', function (e) {
+      e.preventDefault();
+      document.getElementById('destination-panel').classList.toggle('active');
+    });
+
+    document.querySelector('.close-panel').addEventListener('click', function () {
+      document.getElementById('destination-panel').classList.remove('active');
+    });
+
+    // Optional: Close if user clicks outside the panel
+    window.addEventListener('click', function (e) {
+      const panel = document.getElementById('destination-panel');
+      const trigger = document.querySelector('.panel-trigger');
+      if (!panel.contains(e.target) && e.target !== trigger) {
+        panel.classList.remove('active');
+      }
+    });
+  </script>
 </html>
