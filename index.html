@@ -92,7 +92,7 @@
       <div class="left-col">
         <p class="description">
           Discover why we have been voted the "Best Hotel in the World" by
-          Travel+Leisure for four consecutive years.
+          Travel+Leisure for three consecutive years.
         </p>
         <img src="images/EQ_Facade.jpg" alt="Infinity Pool" class="detail-img" />
       </div>
@@ -333,62 +333,86 @@
     }
     window.addEventListener("scroll", reveal);
 
-    // Intro Sequence
-    function animateSequence() {
-      const logo = document.getElementById("mainLogo");
-      const award = document.getElementById("centerAward");
-      const lines = [
-        document.getElementById("line1"),
-        document.getElementById("line2"),
-        document.getElementById("line3"),
-      ];
+ // 1. Independent function for the Permanent Logo
+function showPermanentLogo() {
+  const logo = document.getElementById("mainLogo");
+  setTimeout(() => {
+    logo.style.opacity = "1";
+    // Logo appears and stays; no fade-out logic here
+  }, 500);
+}
 
-      // 1. Show the EQ Logo (Top Left) and keep it there
-      setTimeout(() => {
-        logo.style.opacity = "1";
-      }, 500);
+// 2. Function for the synced Award and Text Sequence
+// 1. Independent function for the Permanent Logo
+function showPermanentLogo() {
+  const logo = document.getElementById("mainLogo");
+  setTimeout(() => {
+    logo.style.opacity = "1";
+    // Logo appears and stays; no fade-out logic here
+  }, 500);
+}
 
-      // 2. Show the Awards Logo (Center)
-      setTimeout(() => {
-        award.style.opacity = "1";
-      }, 1000);
+// 2. Function for the synced Award and Text Sequence
+function animateSequence() {
+  const award = document.getElementById("centerAward");
+  const lines = [
+    document.getElementById("line1"),
+    document.getElementById("line2"),
+    document.getElementById("line3"),
+  ];
 
-      // 3. Fade out the Awards Logo after 3 seconds
-      setTimeout(() => {
-        award.style.opacity = "0";
-      }, 4000);
+  // SYNC START: Award and Line 1 appear at the same time (1.0s)
+  setTimeout(() => {
+    award.style.opacity = "1";
+    animateLine(lines[0], 1.0); 
+  }, 1000);
 
-      // 4. Start the text lines after the award fades out
-      let totalDelay = 5.0; // Starting after award fade out
+  // SYNC FADE OUT: Award and Line 1 disappear together (4.0s)
+  setTimeout(() => {
+    award.style.transition = "opacity 1s ease";
+    award.style.opacity = "0";
+    
+    lines[0].style.transition = "opacity 1s ease";
+    lines[0].style.opacity = "0";
+  }, 10000);
 
-      lines.forEach((line, lineIndex) => {
-        const text = line.textContent;
-        line.textContent = "";
-        line.style.opacity = "1";
+  // LOOP: Handle remaining lines after the first pair fades
+  let totalDelay = 5.0; 
 
-        const characters = text.split("");
-        characters.forEach((char, charIndex) => {
-          const span = document.createElement("span");
-          span.textContent = char === " " ? "\u00A0" : char;
-          span.style.animation = `letterFadeIn 0.8s ease forwards ${totalDelay + charIndex * 0.03}s`;
-          line.appendChild(span);
-        });
+  lines.slice(1).forEach((line) => {
+    animateLine(line, totalDelay);
+    const fadeOutDelay = totalDelay + (line.textContent.length * 0.03) + 2.5;
 
-        // Fade out text lines (but NOT the EQ logo)
-        const fadeOutDelay = totalDelay + characters.length * 0.03 + 2.5;
-        setTimeout(() => {
-          line.style.transition = "opacity 1s ease";
-          line.style.opacity = "0";
-        }, fadeOutDelay * 1000);
+    setTimeout(() => {
+      line.style.transition = "opacity 1s ease";
+      line.style.opacity = "0";
+    }, fadeOutDelay * 1000);
 
-        totalDelay = fadeOutDelay + 1;
-      });
-    }
-    window.addEventListener("load", () => {
-      animateSequence();
-      reveal(); // Check visibility on load
-    });
+    totalDelay = fadeOutDelay + 1;
+  });
+}
 
+// Helper: Handles the character-by-character typing effect
+function animateLine(line, startDelay) {
+  const text = line.textContent;
+  line.textContent = "";
+  line.style.opacity = "1";
+
+  const characters = text.split("");
+  characters.forEach((char, charIndex) => {
+    const span = document.createElement("span");
+    span.textContent = char === " " ? "\u00A0" : char;
+    span.style.animation = `letterFadeIn 0.8s ease forwards ${startDelay + charIndex * 0.03}s`;
+    line.appendChild(span);
+  });
+}
+
+// Initialize both on window load
+window.addEventListener("load", () => {
+  showPermanentLogo(); // Logo starts its own timer
+  animateSequence();   // Award and text start their sequence
+  if (typeof reveal === "function") reveal(); 
+});
 
   </script>
   <script>

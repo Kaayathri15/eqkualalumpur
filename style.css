@@ -344,7 +344,6 @@
         .landscape-crop {
             width: 100%;
             height: 650px;
-            width: 1300px;
             /* Keeps it square as per your current setting */
             object-fit: cover;
             /* Removed fixed height: 600px to allow scaling */
