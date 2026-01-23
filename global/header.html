@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EQ | A Legacy of Luxury</title>
+  <link href="https://fonts.googleapis.com/css2?family=Baskerville:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script type="text/javascript" src="https://cdn.weglot.com/weglot.min.js"></script>
+<script>
+    Weglot.initialize({
+        api_key: 'wg_f9bba43040e5e98486123e51419904ca4'
+    });
+</script>
+
+</head>
+
+<body>
+
+  <!-- HEADER -->
+ 
+    <div class="mobile-menu-overlay" id="mobMenu">
+        <div class="mobile-close-btn" id="mobMenuClose">&times;</div>
+        <nav class="mobile-nav-links">
+            <a href="#">Destination</a>
+            <a href="#">Experience</a>
+            <a href="#">Accommodation</a>
+            <a href="#">Dining</a>
+            <a href="#">Offers</a>
+        </nav>
+    </div>
+
+    <header id="nav">
+        <div class="header-line-top">
+            <div class="header-left">
+           
+            </div>
+
+            <div class="header-center">
+                <nav class="nav-links">
+                    <a href="#">Destination</a>
+                    <img src="images/tilde.png" class="tilde-icon" alt="~">
+                    <a href="#">Experience</a>
+                </nav>
+            </div>
+
+            <div class="header-right">
+                <a href="javascript:void(0)" class="btn-reserve" id="bookTrigger">Book to Stay</a>
+                <div class="hamburger" id="mobMenuTrigger">
+                    <span></span><span></span><span></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="header-line-bottom">
+            <div class="mobile-close-btn" id="mobMenuClose">&times;</div>
+            <nav class="nav-links">
+                <a href="#">Accommodation</a>
+                <a href="#">Dining</a>
+                <a href="#">Offers</a>
+                <a href="#">Wellness</a>
+                <a href="#">Events</a>
+                <a href="#">E-Shop</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="booking-panel" id="bookingPanel">
+        <div class="panel-close-btn" id="panelClose">&times;</div>
+        <div class="booking-inner">
+            <div class="booking-field">
+                <label>Check In</label>
+                <input type="text" placeholder="Select Date" onfocus="(this.type='date')">
+            </div>
+            <div class="booking-field">
+                <label>Check Out</label>
+                <input type="text" placeholder="Select Date" onfocus="(this.type='date')">
+            </div>
+            <div class="booking-field">
+                <label>Guests</label>
+                <select>
+                    <option>1 Adult, 0 Children</option>
+                    <option selected>2 Adults, 0 Children</option>
+                </select>
+            </div>
+            <button class="booking-submit">Check Availability</button>
+        </div>
+    </div>
+   <!-- END OF HEADER -->
+
+
+
+   <script>
+       const nav = document.getElementById('nav');
+    const mobTrigger = document.getElementById('mobMenuTrigger');
+    const mobMenu = document.getElementById('mobMenu');
+    const mobClose = document.getElementById('mobMenuClose');
+
+    // Function to Toggle Menu
+    function toggleMobileMenu() {
+        mobMenu.classList.toggle('active');
+        nav.classList.toggle('menu-open');
+
+        // Prevent scrolling when menu is open
+        if (mobMenu.classList.contains('active')) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'auto';
+        }
+    }
+
+    // 1. Click Hamburger to Open/Close
+    mobTrigger.addEventListener('click', toggleMobileMenu);
+
+    // 2. Click the 'X' inside the menu to Close
+    mobClose.addEventListener('click', toggleMobileMenu);
+
+    // 3. Scroll Logic
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 80) {
+            nav.classList.add('scrolled');
+        } else {
+            nav.classList.remove('scrolled');
+        }
+    });
+
+    // 4. Close menu if a link is clicked
+    const mobLinks = document.querySelectorAll('.mobile-nav-links a');
+    mobLinks.forEach(link => {
+        link.addEventListener('click', toggleMobileMenu);
+    });
+    // Scroll Logic for Header Expansion
+    window.addEventListener('scroll', () => {
+        const nav = document.getElementById('nav');
+        if (window.scrollY > 80) {
+            nav.classList.add('scrolled');
+        } else {
+            nav.classList.remove('scrolled');
+        }
+    });
+    const observerOptions = {
+    threshold: 0.2
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+        }
+    });
+}, observerOptions);
+ const bookTrigger = document.getElementById('bookTrigger');
+    const panelClose = document.getElementById('panelClose');
+    const bookingPanel = document.getElementById('bookingPanel');
+
+    // Function to close panel
+    function closePanel() {
+        bookingPanel.classList.remove('is-open');
+    }
+
+    // Open via the header button
+    bookTrigger.addEventListener('click', (e) => {
+        e.preventDefault();
+        bookingPanel.classList.add('is-open');
+    });
+
+    // Close via the internal X button
+    panelClose.addEventListener('click', closePanel);
+
+    // Optional: Close panel if user clicks outside of it
+    window.addEventListener('mousedown', (e) => {
+        if (bookingPanel.classList.contains('is-open') && !bookingPanel.contains(e.target) && e.target !== bookTrigger) {
+            closePanel();
+        }
+    });
+    const track = document.getElementById('spotlightTrack');
+    const cards = document.querySelectorAll('.spotlight-card');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+
+    let currentIndex = 2; // Starts at Wellness (3rd card) to be in the middle
+
+    function updateGallery(index) {
+        cards.forEach((card, i) => {
+            card.classList.toggle('active', i === index);
+        });
+
+        const activeCard = cards[index];
+
+        // Measure the exact pixel center of the active card relative to the track
+        const cardCenter = activeCard.offsetLeft + (activeCard.offsetWidth / 2);
+
+        // Move the track so that the card's center point is exactly at 50% of the screen width
+        track.style.transform = `translateX(calc(50vw - ${cardCenter}px))`;
+    }
+
+    // Update the gallery whenever the window is resized or zoomed
+    window.addEventListener('resize', () => updateGallery(currentIndex));
+
+    // Initialize on load
+    window.addEventListener('load', () => {
+        updateGallery(currentIndex);
+    });
+
+
+    // Navigation logic
+    nextBtn.addEventListener('click', () => {
+        if (currentIndex < cards.length - 1) {
+            currentIndex++;
+            updateGallery(currentIndex);
+        }
+    });
+
+    prevBtn.addEventListener('click', () => {
+        if (currentIndex > 0) {
+            currentIndex--;
+            updateGallery(currentIndex);
+        }
+    });
+
+    cards.forEach((card, i) => {
+        card.addEventListener('click', () => {
+            currentIndex = i;
+            updateGallery(currentIndex);
+        });
+    });
+   </script>

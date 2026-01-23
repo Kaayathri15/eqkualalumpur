@@ -1,916 +1,180 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EQ | Where Your Story Begins</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --warm-cream: #faf8f3;
-            --golden-hour: #d4a574;
-            --deep-charcoal: #2a2a2a;
-            --soft-grey: #666;
-            --accent-bronze: #8e8c84;
-        }
-
-        * {
-            box-sizing: border-box;
-        }
-
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Cormorant Garamond', serif;
-            background-color: var(--warm-cream);
-            color: var(--deep-charcoal);
-            -webkit-font-smoothing: antialiased;
-            overflow-x: hidden;
-            line-height: 1.7;
-        }
-
-        img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        /* --- LIFESTYLE ANIMATIONS --- */
-        .reveal {
-            opacity: 1;
-            transform: translateY(30px);
-            transition: all 1.2s ease-out;
-        }
-
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* --- INTRO VIDEO SECTION --- */
-        .intro-video {
-            position: relative;
-            width: 100vw;
-            height: 100vh;
-            overflow: hidden;
-            background: black;
-        }
-
-        .video-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to bottom,
-                    rgba(0, 0, 0, 0.3) 0%,
-                    rgba(0, 0, 0, 0) 40%,
-                    rgba(0, 0, 0, 0.75) 100%);
-            z-index: 5;
-            pointer-events: none;
-        }
-
-        #introVideo {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: 1;
-        }
-
-        .intro-logo {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 150px;
-            z-index: 10;
-            opacity: 0;
-            transition: opacity 1.5s ease;
-        }
-
-        .intro-logo img {
-            width: 100%;
-            height: auto;
-        }
-
-        .intro-text {
-            position: absolute;
-            bottom: 15%;
-            left: 50%;
-            transform: translateX(-50%);
-            text-align: center;
-            color: white;
-            font-size: clamp(1.3rem, 3vw, 1.8rem);
-            width: 85%;
-            z-index: 10;
-            font-weight: 300;
-            font-style: italic;
-        }
-
-        .line {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            opacity: 0;
-            margin: 0;
-        }
-
-        .line span {
-            display: inline-block;
-            white-space: pre;
-            opacity: 0;
-        }
-
-        @keyframes letterFadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* --- HEADER --- */
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 5%;
-            background: rgba(255, 255, 255, 0.97);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-            backdrop-filter: blur(10px);
-        }
-
-        .nav-group {
-            display: flex;
-            align-items: center;
-            gap: 30px;
-            text-transform: uppercase;
-            font-size: 10px;
-            letter-spacing: 2px;
-            font-family: Arial, sans-serif;
-        }
-
-        .nav-group a {
-            text-decoration: none;
-            color: var(--deep-charcoal);
-            transition: all 0.3s;
-        }
-
-        .nav-group a:hover {
-            color: var(--golden-hour);
-        }
-
-        .book-btn {
-            background-color: var(--accent-bronze);
-            color: white !important;
-            padding: 12px 25px;
-            transition: all 0.3s;
-        }
-
-        .book-btn:hover {
-            background-color: var(--golden-hour);
-            transform: translateY(-2px);
-        }
-
-        /* --- HERO CONTAINER --- */
-        .hero-container {
-            margin-left: 140px;
-            max-width: 1600px;
-            position: relative;
-            padding: 80px 0;
-        }
-
-        h1 {
-            font-size: clamp(2.2rem, 5vw, 4rem);
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            font-weight: 300;
-            margin-bottom: 60px;
-            max-width: 1000px;
-            color: var(--deep-charcoal);
-        }
-
-        .content-wrapper {
-            display: flex;
-            gap: 80px;
-        }
-
-        .left-col {
-            flex: 1.0;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .right-col {
-            flex: 3;
-            position: relative;
-        }
-
-        /* Editorial Drop Cap with Quote */
-        .description {
-            font-size: 1.8rem;
-            margin-bottom: 50px;
-            color: #444;
-            font-style: italic;
-            position: relative;
-            padding-left: 40px;
-            font-weight: 300;
-            line-height: 1.6;
-        }
-
-        .description::before {
-            content: '"';
-            position: absolute;
-            left: 0;
-            top: -20px;
-            font-size: 5rem;
-            color: var(--golden-hour);
-            opacity: 0.4;
-            font-style: normal;
-        }
-
-        .normaldescription {
-            font-size: 1.3rem;
-            margin-bottom: 30px;
-            color: #444;
-            font-weight: 300;
-            line-height: 1.6;
-        }
-
-        .landscape-crop {
-            width: 100%;
-            height: 650px;
-            max-width: 1300px;
-            object-fit: cover;
-            filter: contrast(1.05) saturate(1.12) brightness(1.02);
-            transition: all 0.8s ease;
-        }
-
-        .landscape-crop:hover {
-            filter: contrast(1.08) saturate(1.18) brightness(1.04);
-            transform: scale(1.015);
-        }
-
-        .detail-img {
-            width: 100%;
-            aspect-ratio: 3 / 4;
-            object-fit: cover;
-            margin-top: 60px;
-            filter: contrast(1.05) saturate(1.12) brightness(1.02);
-            transition: all 0.8s ease;
-        }
-
-        .detail-img:hover {
-            filter: contrast(1.08) saturate(1.18) brightness(1.04);
-            transform: scale(1.015);
-        }
-
-        /* Award Seal Placement */
-        .award-image-wrap {
-            position: absolute;
-            top: 450px;
-            right: 20px;
-            width: 160px;
-            z-index: 20;
-            filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.2));
-        }
-
-        .award-logo-img {
-            width: 100%;
-            height: auto;
-        }
-
-        .image-caption {
-            margin-top: 40px;
-            font-size: 1.2rem;
-            color: var(--soft-grey);
-            max-width: 600px;
-            line-height: 1.7;
-            font-weight: 300;
-        }
-
-        .discover-link {
-            display: inline-block;
-            margin-top: 20px;
-            text-decoration: none;
-            color: var(--deep-charcoal);
-            font-size: 11px;
-            letter-spacing: 2px;
-            border-bottom: 1px solid var(--deep-charcoal);
-            padding-bottom: 5px;
-            transition: all 0.3s;
-            font-family: Arial, sans-serif;
-        }
-
-        .discover-link:hover {
-            color: var(--golden-hour);
-            border-color: var(--golden-hour);
-            padding-right: 10px;
-        }
-
-        /* --- LIFESTYLE MOMENT SECTION --- */
-        .lifestyle-moment {
-            padding: 120px 5%;
-            background: linear-gradient(135deg, #f5f1e8 0%, #e8dfd0 100%);
-            text-align: center;
-            margin: 80px 0;
-        }
-
-        .moment-text {
-            font-size: clamp(1.8rem, 3vw, 2.5rem);
-            font-style: italic;
-            max-width: 900px;
-            margin: 0 auto 30px;
-            color: var(--deep-charcoal);
-            line-height: 1.6;
-            font-weight: 300;
-        }
-
-        .moment-attribution {
-            font-size: 0.95rem;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: var(--accent-bronze);
-            font-family: Arial, sans-serif;
-        }
-
-        /* --- EQ CURATES SPECIFIC STYLES --- */
-        .curates-section {
-            display: flex;
-            align-items: center;
-            gap: 100px;
-            padding: 100px 5% 100px 140px;
-            background-color: var(--warm-cream);
-        }
-
-        .curates-content {
-            flex: 1;
-            max-width: 550px;
-        }
-
-        .curates-title {
-            font-size: 2.8rem;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-            margin-bottom: 40px;
-            color: var(--deep-charcoal);
-            font-weight: 300;
-        }
-
-        .curates-text {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: var(--soft-grey);
-            font-weight: 300;
-            margin-bottom: 30px;
-        }
-
-        .read-more {
-            display: inline-block;
-            font-family: Arial, sans-serif;
-            font-size: 10px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            text-decoration: none;
-            color: var(--deep-charcoal);
-            border-bottom: 1px solid var(--deep-charcoal);
-            padding-bottom: 3px;
-            transition: all 0.3s;
-        }
-
-        .read-more:hover {
-            color: var(--golden-hour);
-            border-color: var(--golden-hour);
-        }
-
-        .curates-image-wrap {
-            flex: 1.2;
-        }
-
-        .curates-image-wrap img {
-            width: 100%;
-            aspect-ratio: 4 / 5;
-            object-fit: cover;
-            display: block;
-            box-shadow: 20px 20px 60px rgba(0, 0, 0, 0.08);
-            filter: contrast(1.05) saturate(1.12) brightness(1.02);
-            transition: all 0.8s ease;
-        }
-
-        .curates-image-wrap img:hover {
-            filter: contrast(1.08) saturate(1.18) brightness(1.04);
-            transform: scale(1.01);
-        }
-
-        /* --- AWARDS SECTION --- */
-        .awards-section {
-            padding: 100px 5% 100px 140px;
-            background-color: var(--warm-cream);
-        }
-
-        .awards-intro {
-            max-width: 800px;
-            margin-bottom: 80px;
-        }
-
-        .awards-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 60px;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .award-item {
-            text-align: center;
-        }
-
-        .award-logo-placeholder {
-            height: 200px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 30px;
-        }
-
-        .award-logo-placeholder img {
-            max-width: 260px;
-            max-height: 260px;
-            width: auto;
-            height: auto;
-            object-fit: contain;
-        }
-
-        /* --- COMMUNITY SECTION --- */
-        .community-section {
-            padding: 100px 5% 100px 140px;
-            background-color: var(--warm-cream);
-        }
-
-        .community-container {
-            display: flex;
-            gap: 100px;
-            align-items: flex-start;
-        }
-
-        .community-main {
-            flex: 2;
-        }
-
-        .community-image-large img {
-            width: 100%;
-            aspect-ratio: 16 / 9;
-            object-fit: cover;
-            margin-bottom: 40px;
-            filter: contrast(1.05) saturate(1.12) brightness(1.02);
-        }
-
-        .community-text .subtitle {
-            font-size: 1.4rem;
-            font-style: italic;
-            color: var(--accent-bronze);
-            margin-bottom: 25px;
-        }
-
-        .community-side {
-            flex: 1;
-            margin-top: 150px;
-        }
-
-        .community-image-small img {
-            width: 100%;
-            aspect-ratio: 4 / 5;
-            object-fit: cover;
-            margin-bottom: 30px;
-            filter: contrast(1.05) saturate(1.12) brightness(1.02);
-        }
-
-        .community-text-small h3 {
-            font-size: 1rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            font-weight: 400;
-            margin-bottom: 15px;
-        }
-
-        /* --- FOOTER --- */
-        .site-footer {
-            background-color: var(--deep-charcoal);
-            color: var(--warm-cream);
-            padding: 80px 5% 40px;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: 1.5fr 1fr 1fr 1fr;
-            gap: 60px;
-            max-width: 1400px;
-            margin: 0 auto 60px;
-        }
-
-        .footer-logo img {
-            width: 120px;
-            margin-bottom: 20px;
-            filter: brightness(0) invert(1);
-        }
-
-        .footer-tagline {
-            font-size: 1rem;
-            font-style: italic;
-            color: #999;
-        }
-
-        .footer-column h4 {
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 20px;
-            font-weight: 400;
-            font-family: Arial, sans-serif;
-        }
-
-        .footer-column ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .footer-column ul li {
-            margin-bottom: 12px;
-        }
-
-        .footer-column a {
-            color: #999;
-            text-decoration: none;
-            font-size: 0.95rem;
-            transition: color 0.3s;
-        }
-
-        .footer-column a:hover {
-            color: var(--golden-hour);
-        }
-
-        .footer-address,
-        .footer-contact {
-            font-size: 0.95rem;
-            line-height: 1.8;
-            color: #999;
-        }
-
-        .footer-contact a {
-            color: #999;
-        }
-
-        .footer-bottom {
-            border-top: 1px solid #444;
-            padding-top: 30px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1400px;
-            margin: 0 auto;
-            font-size: 0.85rem;
-            color: #666;
-        }
-
-        .footer-links {
-            display: flex;
-            gap: 30px;
-        }
-
-        .footer-links a {
-            color: #666;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .footer-links a:hover {
-            color: #999;
-        }
-
-        /* --- RESPONSIVE --- */
-        @media (max-width: 1024px) {
-            .hero-container {
-                margin-left: 0;
-                padding: 60px 5%;
-            }
-
-            .content-wrapper {
-                flex-direction: column;
-                gap: 40px;
-            }
-
-            .landscape-crop {
-                aspect-ratio: 16 / 9;
-                height: auto;
-            }
-
-            .award-image-wrap {
-                width: 100px;
-                top: -20px;
-            }
-
-            .curates-section {
-                padding: 60px 5%;
-                flex-direction: column-reverse;
-                gap: 30px;
-            }
-
-            .curates-image-wrap {
-                width: 100%;
-            }
-
-            .curates-image-wrap img {
-                aspect-ratio: 4 / 3;
-            }
-
-            .awards-section {
-                padding: 60px 5%;
-            }
-
-            .awards-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 40px;
-            }
-
-            .community-section {
-                padding: 60px 5%;
-            }
-
-            .community-container {
-                flex-direction: column;
-                gap: 60px;
-            }
-
-            .community-side {
-                margin-top: 0;
-                width: 100%;
-            }
-
-            .footer-content {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-
-            .footer-bottom {
-                flex-direction: column;
-                gap: 20px;
-                text-align: center;
-            }
-
-            .lifestyle-moment {
-                padding: 80px 5%;
-            }
-        }
-    </style>
-</head>
-
-<body>
-
-    <section class="intro-video">
-        <video id="introVideo" autoplay muted playsinline loop>
-            <source src="video/EQ 30 sec Short version.mp4" type="video/mp4">
-        </video>
-        <div class="video-overlay"></div>
-        <div class="intro-logo" id="mainLogo">
-            <img src="images/logo_eq.png" alt="EQ Logo">
+<style>
+:root {
+    --gold: #b2a078;
+    --dark: #1a1a1a;
+    --bg: #fdfdfb;
+}
+
+.hero-grid-container {
+    padding: 60px 40px;
+    background-color: var(--bg);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.grid-layout {
+    display: grid;
+    /* Changed to 1.5fr for both sides to keep them equal landscape widths */
+    grid-template-columns: 1.5fr 1.2fr 1.5fr; 
+    gap: 30px;
+    align-items: center;
+    width: 100%;
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+/* Image 1: Now Landscape */
+.landscape-left img {
+    width: 100%;
+    /* Changed from 2/3 to 4/3 to match the right side */
+    aspect-ratio: 4 / 3; 
+    object-fit: cover;
+    box-shadow: 10px 10px 40px rgba(0,0,0,0.05);
+}
+
+/* Center Content */
+.content-center {
+    padding: 0 10px;
+    text-align: center;
+}
+
+.eyebrow {
+    font-size: 10px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--gold);
+    display: block;
+    margin-bottom: 20px;
+}
+
+.hotel-title {
+    font-family: serif;
+    font-size: clamp(1.8rem, 3vw, 3rem);
+    line-height: 1.1;
+    margin-bottom: 30px;
+}
+
+.hotel-title .italic {
+    font-style: italic;
+    font-weight: 200;
+}
+
+.award-integrated {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 30px;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    padding: 15px 0;
+    width: 100%;
+}
+
+.award-logo { width: 50px; }
+
+.award-info {
+    text-align: left;
+    font-size: 10px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.summary {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+.btn-discover {
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-decoration: none;
+    color: var(--dark);
+    border: 1px solid var(--dark);
+    padding: 12px 30px;
+    transition: 0.3s;
+}
+
+.btn-discover:hover {
+    background: var(--dark);
+    color: white;
+}
+
+/* Image 2: Wide Landscape (Right) */
+.landscape-right {
+    align-self: center;
+}
+
+.landscape-inner {
+    position: relative;
+}
+
+.landscape-inner img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+}
+
+.image-label {
+    position: absolute;
+    top: 0;
+    right: -25px;
+    font-size: 9px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    writing-mode: vertical-rl;
+    height: 100%;
+    opacity: 0.4;
+}
+
+/* Responsive */
+@media (max-width: 1100px) {
+    .grid-layout { 
+        grid-template-columns: 1fr; 
+        max-width: 600px;
+    }
+    .image-label { display: none; }
+}
+</style>
+</style>
+<main class="hero-grid-container">
+    <div class="grid-layout">
+        
+        <div class="grid-item landscape-left">
+            <img src="images/EQ_Facade.jpg" alt="Hotel Architecture" class="reveal-img">
         </div>
-        <div class="intro-text">
-            <div class="line" id="line1">Where heritage whispers through modern elegance,</div>
-            <div class="line" id="line2">52 stories above Kuala Lumpur's pulse,</div>
-            <div class="line" id="line3">your story begins.</div>
-        </div>
-    </section>
 
-    <header>
-        <div class="nav-group">
-            <a href="#">EN</a>
-            <a href="#">Explore</a>
-        </div>
-        <div style="font-size: 20px;">✳</div>
-        <div class="nav-group">
-            <a href="#">Experiences</a>
-            <a href="#" class="book-btn">Reserve</a>
-        </div>
-    </header>
+        <div class="grid-item content-center">
+            <div class="text-wrapper">
+                <span class="eyebrow">Excellence Defined</span>
+                <h1 class="hotel-title">The Best Hotel <br><span class="italic">in Malaysia</span></h1>
+                
+                <div class="award-integrated">
+                    <img src="images/TL-WORLD_PM.png" alt="Travel + Leisure" class="award-logo">
+                    <div class="award-info">
+                        <strong>World's Best 2025</strong><br>
+                        <span>Travel + Leisure</span>
+                    </div>
+                </div>
 
-    <main class="hero-container reveal">
-        <h1>Where Legends Are Made</h1>
-        <div class="content-wrapper">
-            <div class="left-col">
-                <p class="description">
-                    Three years. The world's travelers have spoken. But awards don't capture
-                    the weight of Egyptian cotton, the clink of champagne at golden hour,
-                    or that first breath you take stepping onto your private balcony.
+                <p class="summary">
+                    Voted the "Best Hotel in the World" for four consecutive years, 
+                    we redefine the skyline of hospitality.
                 </p>
-                <img src="images/DetailingCloseUp_ 11.jpg" alt="Infinity Pool" class="detail-img">
-            </div>
-
-            <div class="right-col">
-                <div class="award-image-wrap">
-                    <img src="images/TL-WORLD_PM.png" alt="Award" class="award-logo-img">
-                </div>
-                <img src="images/SpiralStaircase_01.jpg" alt="Skyline View" class="landscape-crop">
-                <p class="image-caption">
-                    This is where morning coffee becomes ritual. Where the city awakens
-                    below you, and everything—finally—feels possible.
-                </p>
-                <a href="https://www.eqkualalumpur.equatorial.com/wp-content/uploads/sites/10/2025/07/2025-07-10-EQ-Press-Release-EQ-Named-22-In-The-World-By-TravelLeisure-World-Best-Awards-2025.pdf"
-                    class="discover-link">DISCOVER MORE</a>
-            </div>
-        </div>
-    </main>
-
-    <section class="lifestyle-moment reveal">
-        <div class="moment-content">
-            <p class="moment-text">
-                "I watched the sun set behind the Petronas Towers from my bathtub.
-                That's when I understood what luxury actually means."
-            </p>
-            <span class="moment-attribution">— Sarah M., New York</span>
-        </div>
-    </section>
-
-    <main class="hero-container reveal">
-        <h1>Your Private Sanctuary</h1>
-        <div class="content-wrapper">
-            <div class="left-col">
-                <p class="description">
-                    Slip into warmth. Pink Himalayan salt glows against your skin.
-                    Temperature, light, silence—calibrated to nothing but your restoration.
-                    This is where time stops.
-                </p>
-                <img src="images/EQ_Sauna_1115.jpeg" alt="Wellness" class="detail-img">
-            </div>
-
-            <div class="right-col">
-                <img src="images/DSC_5301.jpg" alt="Dining" class="landscape-crop">
-                <p class="image-caption">
-                    A chef's hands. Heirloom spices. Laughter echoing off marble.
-                    This is how we turn meals into memories.
-                </p>
-                <a href="#" class="discover-link">DISCOVER MORE</a>
-            </div>
-        </div>
-    </main>
-
-    <section class="curates-section reveal">
-        <div class="curates-content">
-            <h1 class="curates-title">Your Culturist Awaits</h1>
-
-            <p class="description">
-                Forget concierge scripts. Our Culturist is part detective,
-                part local legend—someone who knows which rooftop the city's
-                architects actually drink at.
-            </p>
-            <p class="image-caption">
-                They've spent months walking every street. Tasting every dish.
-                Building relationships with artists, makers, and hidden gems.
-                Now? They're designing days you'll recount for years.
-                Not tours. Transformations.
-            </p>
-            <a href="#" class="read-more">DISCOVER MORE</a>
-        </div>
-        <div class="curates-image-wrap">
-            <img src="images/Swimming Pool Ad 02.jpg" alt="Local Culture Experience">
-        </div>
-    </section>
-
-    <section class="community-section reveal">
-        <h1>Rooted in Community</h1>
-        <div class="community-container">
-            <div class="community-main">
-                <div class="community-image-large">
-                    <img src="images/EQ_Christmas-Lighting.jpeg" alt="EQ Seasonal Celebration">
-                </div>
-                <div class="community-text">
-                    <p class="description">Celebrating a Season of Joy</p>
-                    <p class="image-caption">
-                        As December arrives, Equatorial Plaza transforms. Red and green light
-                        bathes the building's curves. A towering tree greets guests.
-                        Children press their faces to windows. This is how we honor tradition
-                        while creating new ones—warmth radiating through Kuala Lumpur's heart.
-                    </p>
-                    <a href="#" class="discover-link">DISCOVER MORE</a>
-                </div>
-            </div>
-
-            <div class="community-side">
-                <div class="community-image-small">
-                    <img src="images/EQ_Christmas-Retails.jpg" alt="EQ Sustainability">
-                </div>
-                <div class="community-text-small">
-                    <h3>Shining a Light on Sustainability: Earth Hour</h3>
-                    <p class="image-caption">When we turn off the lights, we turn on something deeper.</p>
-                    <a href="#" class="discover-link">LEARN MORE</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="awards-section reveal">
-        <div class="awards-intro">
-            <h1>The World Noticed. You Will Too.</h1>
-            <p class="description">
-                #22 globally isn't about trophies on shelves. It's about
-                the guest who cried at checkout. The couple who got engaged
-                by our pool. The CEO who extended her stay three times.
-            </p>
-        </div>
-        <div class="awards-grid">
-            <div class="award-item">
-                <div class="award-logo-placeholder">
-                    <img src="images/awards/EQ-Tatler-2025-Banner-modified.png" alt="Tatler Asia Award">
-                </div>
-                <h3 class="normaldescription">EQ CEMENTS GLOBAL STATUS WITH PRESTIGIOUS DOUBLE HONOUR FROM TATLER ASIA
-                </h3>
-                <p class="image-caption">Fresh from being named the Best Service Hotel in Malaysia by Tatler Malaysia
-                    earlier this year, EQ has now secured a place on the coveted Tatler Asia's Best 100 Hotels in
-                    Asia-Pacific 2025 list.</p>
-            </div>
-            <div class="award-item">
-                <div class="award-logo-placeholder">
-                    <img src="images/awards/2025-10-08-EQ-TWA_PressMedia-2025-modified.png"
-                        alt="Travel Weekly Asia Award">
-                </div>
-                <h3 class="normaldescription">TRAVEL WEEKLY ASIA NAMES EQ BEST BUSINESS HOTEL IN ASIA</h3>
-                <p class="image-caption">EQ, Kuala Lumpur, has achieved a landmark recognition, winning the Best
-                    Business Hotel (Asia) title at the Travel Weekly Asia Readers' Choice Awards 2025. </p>
-            </div>
-            <div class="award-item">
-                <div class="award-logo-placeholder">
-                    <img src="images/awards/TL-WORLD_PM-removebg-preview.png"
-                        alt="Travel + Leisure World's Best">
-                </div>
-                <h3 class="normaldescription">EQ NAMED #22 IN THE WORLD BY TRAVEL + LEISURE'S WORLD'S AWARDS 2025</h3>
-                <p class="image-caption">EQ has soared to #22 in the world and secured the #2 spot in Asia in the
-                    prestigious 2025 Travel + Leisure World's Best Awards, a landmark global achievement that builds
-                    upon its remarkable legacy. </p>
-            </div>
-        </div>
-    </section>
-
-    <footer class="site-footer">
-        <div class="footer-content">
-            <div class="footer-column">
-                <div class="footer-logo">
-                    <img src="images/logo_eq.png" alt="EQ Logo">
-                </div>
-                <p class="footer-tagline">Where Your Story Begins</p>
-            </div>
-
-            <div class="footer-column">
-                <h4>Experience</h4>
-                <ul>
-                    <li><a href="#">Accommodations</a></li>
-                    <li><a href="#">Dining</a></li>
-                    <li><a href="#">Wellness</a></li>
-                    <li><a href="#">EQ Curates</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-column">
-                <h4>Discover</h4>
-                <ul>
-                    <li><a href="#">Our Story</a></li>
-                    <li><a href="#">Awards</a></li>
-                    <li><a href="#">Gallery</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-column">
-                <h4>Let's Begin</h4>
-                <p class="footer-address">
-                    The EQ Kuala Lumpur<br>
-                    Golden Triangle<br>
-                    Kuala Lumpur, Malaysia
-                </p>
-                <p class="footer-contact">
-                    <a href="tel:+60123456789">+60 12 345 6789</a><br>
-                    <a href="mailto:reservations@eq.com">reservations@eq.com</a>
-                </p>
+                <a href="#" class="btn-discover">DISCOVER MORE</a>
             </div>
         </div>
 
-        <div class="footer-bottom">
-            <p>&copy; 2026 EQ Kuala Lumpur. All rights reserved.</p>
-            <div class="footer-links">
-                <a href="#">Privacy Policy</a>
-                <a href="#">Terms & Conditions</a>
+        <div class="grid-item landscape-right">
+            <div class="landscape-inner">
+                <img src="images/EQ_Pool_5395.jpg" alt="Skyline Pool" class="reveal-img">
+                <div class="image-label">The Infinity Experience</div>
             </div>
         </div>
-    </footer>
 
+    </div>
+</main>
