@@ -91,7 +91,7 @@ include 'global/header.php';
   }
 
   .subtitleTitle {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Baskervillie', sans-serif;
     font-size: 11px;
     letter-spacing: 4px;
     text-transform: uppercase;
@@ -158,6 +158,7 @@ include 'global/header.php';
     overflow: hidden;
     opacity: 0;
     animation: reveal 1s ease-out forwards;
+    left: -140px;
   }
 
   @keyframes reveal {
@@ -468,9 +469,6 @@ include 'global/header.php';
 
 
   /* SECOND SECTION - DISCOVER HAVENS */
-  /* --- SECTION: OUR HAVENS (EDITORIAL WHITE THEME) --- */
-  /* --- SECTION: OUR HAVENS (WHITE THEME) --- */
-
 
   :root {
     --bg: #ffffff;
@@ -604,7 +602,7 @@ include 'global/header.php';
   }
 
   .card-description p {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Baskervillie', sans-serif;
     font-size: 12px;
     color: #555;
     line-height: 1.6;
@@ -851,7 +849,7 @@ include 'global/header.php';
   }
 
   .box-description {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Baskervillie', sans-serif;
     font-size: 14px;
     line-height: 1.8;
     color: var(--text-muted);
@@ -859,7 +857,7 @@ include 'global/header.php';
   }
 
   .box-cta {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Baskervillie', sans-serif;
     font-size: 11px;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -1243,7 +1241,7 @@ $pageData = [
         'title' => 'Accommodation', 
         'desc' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum vestibulum.', 
         'img' => 'https://images.unsplash.com/photo-1590490360182-c33d57733427?w=800', 
-        'link' => 'accommodation.php'
+        'link' => 'accomodation.php'
     ],
     [
         'title' => 'Dining', 
